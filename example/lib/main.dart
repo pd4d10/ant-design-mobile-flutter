@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:antd_mobile/antd_mobile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -75,32 +77,72 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Wrap(
+              spacing: 8,
+              children: const [
+                AntButton(
+                  color: AntTheme.primary,
+                  fill: AntButtonFill.solid,
+                  child: Text('Solid'),
+                ),
+                AntButton(
+                  color: AntTheme.primary,
+                  fill: AntButtonFill.outline,
+                  child: Text('Outline'),
+                ),
+                AntButton(
+                  color: AntTheme.primary,
+                  fill: AntButtonFill.none,
+                  child: Text('None'),
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            const AntButton(
+              block: true,
+              color: AntTheme.primary,
+              size: AntButtonSize.large,
+              child: Text('Block Button'),
+            ),
+            Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 8,
+              children: const [
+                AntButton(
+                  size: AntButtonSize.mini,
+                  color: AntTheme.primary,
+                  child: Text('Mini'),
+                ),
+                AntButton(
+                  size: AntButtonSize.small,
+                  color: AntTheme.primary,
+                  child: Text('Small'),
+                ),
+                AntButton(
+                  size: AntButtonSize.middle,
+                  color: AntTheme.primary,
+                  child: Text('Middle'),
+                ),
+                AntButton(
+                  size: AntButtonSize.large,
+                  color: AntTheme.primary,
+                  child: Text('Large'),
+                ),
+              ],
+            ),
+            Wrap(
+              spacing: 8,
+              children: const [
+                AntButton(child: Text('Default')),
+                AntButton(color: AntTheme.primary, child: Text('Primary')),
+                AntButton(color: AntTheme.success, child: Text('Success')),
+                AntButton(color: AntTheme.danger, child: Text('Danger')),
+                AntButton(color: AntTheme.warning, child: Text('Warning')),
+              ],
             ),
           ],
         ),

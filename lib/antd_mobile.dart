@@ -1,7 +1,2 @@
-library antd_mobile;
-
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'package:antd_mobile/src/button.dart';
+export 'package:antd_mobile/src/colors.dart';
