@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:example/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:antd_mobile/antd_mobile.dart';
 
@@ -50,19 +50,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -82,76 +69,83 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Wrap(
-              spacing: 8,
-              children: const [
-                AntButton(
-                  color: AntTheme.primary,
-                  fill: AntButtonFill.solid,
-                  child: Text('Solid'),
-                ),
-                AntButton(
-                  color: AntTheme.primary,
-                  fill: AntButtonFill.outline,
-                  child: Text('Outline'),
-                ),
-                AntButton(
-                  color: AntTheme.primary,
-                  fill: AntButtonFill.none,
-                  child: Text('None'),
-                ),
-              ],
+            DemoBlock(
+              title: 'Fill',
+              child: Wrap(
+                spacing: 8,
+                children: const [
+                  AntButton(
+                    color: AntTheme.primary,
+                    fill: AntButtonFill.solid,
+                    child: Text('Solid'),
+                  ),
+                  AntButton(
+                    color: AntTheme.primary,
+                    fill: AntButtonFill.outline,
+                    child: Text('Outline'),
+                  ),
+                  AntButton(
+                    color: AntTheme.primary,
+                    fill: AntButtonFill.none,
+                    child: Text('None'),
+                  ),
+                ],
+              ),
             ),
-            const AntButton(
-              block: true,
-              color: AntTheme.primary,
-              size: AntButtonSize.large,
-              child: Text('Block Button'),
+            const DemoBlock(
+              title: 'Block',
+              child: AntButton(
+                block: true,
+                color: AntTheme.primary,
+                size: AntButtonSize.large,
+                child: Text('Block Button'),
+              ),
             ),
-            Wrap(
-              crossAxisAlignment: WrapCrossAlignment.center,
-              spacing: 8,
-              children: const [
-                AntButton(
-                  size: AntButtonSize.mini,
-                  color: AntTheme.primary,
-                  child: Text('Mini'),
-                ),
-                AntButton(
-                  size: AntButtonSize.small,
-                  color: AntTheme.primary,
-                  child: Text('Small'),
-                ),
-                AntButton(
-                  size: AntButtonSize.middle,
-                  color: AntTheme.primary,
-                  child: Text('Middle'),
-                ),
-                AntButton(
-                  size: AntButtonSize.large,
-                  color: AntTheme.primary,
-                  child: Text('Large'),
-                ),
-              ],
+            DemoBlock(
+              title: 'Size',
+              child: Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 8,
+                children: const [
+                  AntButton(
+                    size: AntButtonSize.mini,
+                    color: AntTheme.primary,
+                    child: Text('Mini'),
+                  ),
+                  AntButton(
+                    size: AntButtonSize.small,
+                    color: AntTheme.primary,
+                    child: Text('Small'),
+                  ),
+                  AntButton(
+                    size: AntButtonSize.middle,
+                    color: AntTheme.primary,
+                    child: Text('Middle'),
+                  ),
+                  AntButton(
+                    size: AntButtonSize.large,
+                    color: AntTheme.primary,
+                    child: Text('Large'),
+                  ),
+                ],
+              ),
             ),
-            Wrap(
-              spacing: 8,
-              children: const [
-                AntButton(child: Text('Default')),
-                AntButton(color: AntTheme.primary, child: Text('Primary')),
-                AntButton(color: AntTheme.success, child: Text('Success')),
-                AntButton(color: AntTheme.danger, child: Text('Danger')),
-                AntButton(color: AntTheme.warning, child: Text('Warning')),
-              ],
+            DemoBlock(
+              title: 'Color',
+              child: Wrap(
+                spacing: 8,
+                children: const [
+                  AntButton(child: Text('Default')),
+                  AntButton(color: AntTheme.primary, child: Text('Primary')),
+                  AntButton(color: AntTheme.success, child: Text('Success')),
+                  AntButton(color: AntTheme.danger, child: Text('Danger')),
+                  AntButton(color: AntTheme.warning, child: Text('Warning')),
+                ],
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
