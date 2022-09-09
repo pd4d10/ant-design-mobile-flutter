@@ -88,10 +88,14 @@ class _AntButtonState extends State<AntButton>
     final bool enabled = !widget.disabled;
     final backgroundColor =
         widget.fill == AntButtonFill.solid ? widget.color : AntTheme.white;
-    final borderColor =
+
+    var borderColor =
         widget.fill == AntButtonFill.outline ? widget.color : backgroundColor;
-    final Color textColor =
-        widget.fill == AntButtonFill.solid ? AntTheme.white : widget.color;
+    if (widget.color == AntTheme.white) borderColor = AntTheme.border;
+
+    var textColor = widget.color;
+    if (widget.fill == AntButtonFill.solid) textColor = AntTheme.white;
+    if (widget.color == AntTheme.white) textColor = AntTheme.text;
 
     return MouseRegion(
       cursor: enabled ? SystemMouseCursors.click : MouseCursor.defer,
