@@ -5,10 +5,12 @@ class DemoBlock extends StatelessWidget {
     super.key,
     required this.title,
     required this.child,
+    this.padding = 12,
   });
 
   final String title;
   final Widget child;
+  final double padding;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class DemoBlock extends StatelessWidget {
           ),
         ),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
+          padding: EdgeInsets.symmetric(horizontal: padding),
           alignment: Alignment.centerLeft,
           child: child,
         ),
