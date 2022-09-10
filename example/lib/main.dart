@@ -1,4 +1,6 @@
 import 'package:example/button.dart';
+import 'package:example/nav_bar.dart';
+import 'package:example/tab_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -65,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: const Padding(
         padding: EdgeInsets.all(8.0),
-        child: ButtonExample(),
+        child: TabBarExample(),
       ),
     );
   }
