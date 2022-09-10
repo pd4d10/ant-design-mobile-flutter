@@ -4,11 +4,12 @@ const { renderToString } = require("react-dom/server");
 const icons = require(`antd-mobile-icons`);
 
 try {
-  fs.mkdirSync("svg");
+  fs.rmSync("dist", { recursive: true });
+  fs.mkdirSync("dist/svg", { recursive: true });
 } catch {}
 
 Object.entries(icons).forEach(([key, Component]) => {
   const svg = renderToString(createElement(Component));
 
-  fs.writeFileSync(`svg/${key}.svg`, svg);
+  fs.writeFileSync(`dist/svg/${key}.svg`, svg);
 });

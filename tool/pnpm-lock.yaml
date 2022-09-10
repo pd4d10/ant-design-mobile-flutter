@@ -2,11 +2,13 @@ lockfileVersion: 5.4
 
 specifiers:
   antd-mobile-icons: ^0.3.0
+  lodash: ^4.17.21
   react: ^18.2.0
   react-dom: ^18.2.0
 
 devDependencies:
   antd-mobile-icons: 0.3.0
+  lodash: 4.17.21
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -18,6 +20,10 @@ packages:
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: true
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: true
 
   /loose-envify/1.4.0:
