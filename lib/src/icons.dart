@@ -2,306 +2,308 @@
 import 'package:flutter/widgets.dart';
 
 class AntIcons {
-  static const IconData videoOutline = IconData(59648,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData userSetOutline = IconData(59649,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData userOutline = IconData(59650,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData userContactOutline = IconData(59651,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData userCircleOutline = IconData(59652,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData userAddOutline = IconData(59653,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData uploadOutline = IconData(59654,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData upOutline = IconData(59655,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData upCircleOutline = IconData(59656,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData unorderedListOutline = IconData(59657,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData unlockOutline = IconData(59658,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData undoOutline = IconData(59659,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData truckOutline = IconData(59660,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData travelOutline = IconData(59661,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData transportQRcodeOutline = IconData(59662,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData textOutline = IconData(59663,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData textDeletionOutline = IconData(59664,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData teamOutline = IconData(59665,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData teamFill = IconData(59666,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData tagOutline = IconData(59667,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData systemQRcodeOutline = IconData(59668,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData stopOutline = IconData(59669,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData starOutline = IconData(59670,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData starFill = IconData(59671,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData soundOutline = IconData(59672,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData soundMuteOutline = IconData(59673,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData soundMuteFill = IconData(59674,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData smileOutline = IconData(59675,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData smileFill = IconData(59676,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData shrinkOutline = IconData(59677,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData shopbagOutline = IconData(59678,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData setOutline = IconData(59679,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData sendOutline = IconData(59680,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData searchOutline = IconData(59681,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData scanningOutline = IconData(59682,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData scanningFaceOutline = IconData(59683,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData scanCodeOutline = IconData(59684,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData rightOutline = IconData(59685,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData redoOutline = IconData(59686,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData receivePaymentOutline = IconData(59687,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData receiptOutline = IconData(59688,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData questionCircleOutline = IconData(59689,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData questionCircleFill = IconData(59690,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData playOutline = IconData(59691,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData pieOutline = IconData(59692,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData picturesOutline = IconData(59693,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData pictureWrongOutline = IconData(59694,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData pictureOutline = IconData(59695,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData phonebookOutline = IconData(59696,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData phonebookFill = IconData(59697,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData phoneFill = IconData(59698,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData payCircleOutline = IconData(59699,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData movieOutline = IconData(59700,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData moreOutline = IconData(59701,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData minusOutline = IconData(59702,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData minusCircleOutline = IconData(59703,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData messageOutline = IconData(59704,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData messageFill = IconData(59705,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData mailOutline = IconData(59706,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData mailOpenOutline = IconData(59707,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData mailFill = IconData(59708,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData loopOutline = IconData(59709,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData lockOutline = IconData(59710,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData lockFill = IconData(59711,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData locationOutline = IconData(59712,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData locationFill = IconData(59713,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData linkOutline = IconData(59714,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData likeOutline = IconData(59715,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData leftOutline = IconData(59716,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData koubeiOutline = IconData(59717,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData koubeiFill = IconData(59718,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData keyOutline = IconData(59719,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData informationCircleOutline = IconData(59720,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData informationCircleFill = IconData(59721,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData histogramOutline = IconData(59722,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData heartOutline = IconData(59723,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData heartFill = IconData(59724,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData handPayCircleOutline = IconData(59725,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData globalOutline = IconData(59726,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData giftOutline = IconData(59727,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData frownOutline = IconData(59728,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData frownFill = IconData(59729,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData forbidFill = IconData(59730,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData folderOutline = IconData(59731,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData flagOutline = IconData(59732,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData fireFill = IconData(59733,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData fingerdownOutline = IconData(59734,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData filterOutline = IconData(59735,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData fillinOutline = IconData(59736,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData fileWrongOutline = IconData(59737,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData fileOutline = IconData(59738,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData faceRecognitionOutline = IconData(59739,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData eyeOutline = IconData(59740,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData eyeInvisibleOutline = IconData(59741,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData eyeInvisibleFill = IconData(59742,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData eyeFill = IconData(59743,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData exclamationTriangleOutline = IconData(59744,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData exclamationShieldOutline = IconData(59745,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData exclamationShieldFill = IconData(59746,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData exclamationOutline = IconData(59747,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData exclamationCircleOutline = IconData(59748,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData exclamationCircleFill = IconData(59749,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData environmentOutline = IconData(59750,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData editSOutline = IconData(59751,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData editSFill = IconData(59752,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData editFill = IconData(59753,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData downlandOutline = IconData(59754,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData downOutline = IconData(59755,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData downFill = IconData(59756,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData downCircleOutline = IconData(59757,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData deleteOutline = IconData(59758,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData couponOutline = IconData(59759,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData contentOutline = IconData(59760,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData compassOutline = IconData(59761,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData collectMoneyOutline = IconData(59762,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData closeShieldOutline = IconData(59763,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData closeOutline = IconData(59764,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData closeCircleOutline = IconData(59765,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData closeCircleFill = IconData(59766,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData clockCircleOutline = IconData(59767,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData clockCircleFill = IconData(59768,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData checkShieldOutline = IconData(59769,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData checkShieldFill = IconData(59770,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData checkOutline = IconData(59771,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData checkCircleOutline = IconData(59772,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData checkCircleFill = IconData(59773,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData chatWrongOutline = IconData(59774,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData chatCheckOutline = IconData(59775,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData chatAddOutline = IconData(59776,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData cameraOutline = IconData(59777,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData calendarOutline = IconData(59778,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData calculatorOutline = IconData(59779,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData billOutline = IconData(59780,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData bellOutline = IconData(59781,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData bellMuteOutline = IconData(59782,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData bankcardOutline = IconData(59783,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData audioOutline = IconData(59784,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData audioMutedOutline = IconData(59785,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData audioFill = IconData(59786,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData arrowsAltOutline = IconData(59787,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData arrowDownCircleOutline = IconData(59788,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData appstoreOutline = IconData(59789,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData appOutline = IconData(59790,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData antOutline = IconData(59791,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData alipaySquareFill = IconData(59792,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData alipayCircleFill = IconData(59793,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData addressBookFill = IconData(59794,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData addSquareOutline = IconData(59795,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData addOutline = IconData(59796,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData addCircleOutline = IconData(59797,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
-  static const IconData aaOutline = IconData(59798,
-      fontFamily: "AntDesignMobile", fontPackage: "antd_mobile");
+  static const _fontFamily = 'AntDesignMobile';
+  static const _fontPackage = 'antd_mobile';
+  static const aaOutline =
+      IconData(59648, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const addCircleOutline =
+      IconData(59649, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const addOutline =
+      IconData(59650, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const addressBookFill =
+      IconData(59651, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const addSquareOutline =
+      IconData(59652, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const alipayCircleFill =
+      IconData(59653, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const alipaySquareFill =
+      IconData(59654, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const antOutline =
+      IconData(59655, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const appOutline =
+      IconData(59656, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const appstoreOutline =
+      IconData(59657, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const arrowDownCircleOutline =
+      IconData(59658, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const arrowsAltOutline =
+      IconData(59659, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const audioFill =
+      IconData(59660, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const audioMutedOutline =
+      IconData(59661, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const audioOutline =
+      IconData(59662, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const bankcardOutline =
+      IconData(59663, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const bellMuteOutline =
+      IconData(59664, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const bellOutline =
+      IconData(59665, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const billOutline =
+      IconData(59666, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const calculatorOutline =
+      IconData(59667, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const calendarOutline =
+      IconData(59668, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const cameraOutline =
+      IconData(59669, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const chatAddOutline =
+      IconData(59670, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const chatCheckOutline =
+      IconData(59671, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const chatWrongOutline =
+      IconData(59672, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const checkCircleFill =
+      IconData(59673, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const checkCircleOutline =
+      IconData(59674, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const checkOutline =
+      IconData(59675, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const checkShieldFill =
+      IconData(59676, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const checkShieldOutline =
+      IconData(59677, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const clockCircleFill =
+      IconData(59678, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const clockCircleOutline =
+      IconData(59679, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const closeCircleFill =
+      IconData(59680, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const closeCircleOutline =
+      IconData(59681, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const closeOutline =
+      IconData(59682, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const closeShieldOutline =
+      IconData(59683, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const collectMoneyOutline =
+      IconData(59684, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const compassOutline =
+      IconData(59685, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const contentOutline =
+      IconData(59686, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const couponOutline =
+      IconData(59687, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const deleteOutline =
+      IconData(59688, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const downCircleOutline =
+      IconData(59689, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const downFill =
+      IconData(59690, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const downlandOutline =
+      IconData(59691, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const downOutline =
+      IconData(59692, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const editFill =
+      IconData(59693, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const editSFill =
+      IconData(59694, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const editSOutline =
+      IconData(59695, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const environmentOutline =
+      IconData(59696, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const exclamationCircleFill =
+      IconData(59697, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const exclamationCircleOutline =
+      IconData(59698, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const exclamationOutline =
+      IconData(59699, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const exclamationShieldFill =
+      IconData(59700, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const exclamationShieldOutline =
+      IconData(59701, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const exclamationTriangleOutline =
+      IconData(59702, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const eyeFill =
+      IconData(59703, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const eyeInvisibleFill =
+      IconData(59704, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const eyeInvisibleOutline =
+      IconData(59705, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const eyeOutline =
+      IconData(59706, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const faceRecognitionOutline =
+      IconData(59707, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const fileOutline =
+      IconData(59708, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const fileWrongOutline =
+      IconData(59709, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const fillinOutline =
+      IconData(59710, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const filterOutline =
+      IconData(59711, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const fingerdownOutline =
+      IconData(59712, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const fireFill =
+      IconData(59713, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const flagOutline =
+      IconData(59714, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const folderOutline =
+      IconData(59715, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const forbidFill =
+      IconData(59716, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const frownFill =
+      IconData(59717, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const frownOutline =
+      IconData(59718, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const giftOutline =
+      IconData(59719, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const globalOutline =
+      IconData(59720, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const handPayCircleOutline =
+      IconData(59721, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const heartFill =
+      IconData(59722, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const heartOutline =
+      IconData(59723, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const histogramOutline =
+      IconData(59724, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const informationCircleFill =
+      IconData(59725, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const informationCircleOutline =
+      IconData(59726, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const keyOutline =
+      IconData(59727, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const koubeiFill =
+      IconData(59728, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const koubeiOutline =
+      IconData(59729, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const leftOutline =
+      IconData(59730, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const likeOutline =
+      IconData(59731, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const linkOutline =
+      IconData(59732, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const locationFill =
+      IconData(59733, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const locationOutline =
+      IconData(59734, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const lockFill =
+      IconData(59735, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const lockOutline =
+      IconData(59736, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const loopOutline =
+      IconData(59737, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const mailFill =
+      IconData(59738, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const mailOpenOutline =
+      IconData(59739, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const mailOutline =
+      IconData(59740, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const messageFill =
+      IconData(59741, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const messageOutline =
+      IconData(59742, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const minusCircleOutline =
+      IconData(59743, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const minusOutline =
+      IconData(59744, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const moreOutline =
+      IconData(59745, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const movieOutline =
+      IconData(59746, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const payCircleOutline =
+      IconData(59747, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const phonebookFill =
+      IconData(59748, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const phonebookOutline =
+      IconData(59749, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const phoneFill =
+      IconData(59750, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const pictureOutline =
+      IconData(59751, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const picturesOutline =
+      IconData(59752, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const pictureWrongOutline =
+      IconData(59753, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const pieOutline =
+      IconData(59754, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const playOutline =
+      IconData(59755, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const questionCircleFill =
+      IconData(59756, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const questionCircleOutline =
+      IconData(59757, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const receiptOutline =
+      IconData(59758, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const receivePaymentOutline =
+      IconData(59759, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const redoOutline =
+      IconData(59760, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const rightOutline =
+      IconData(59761, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const scanCodeOutline =
+      IconData(59762, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const scanningFaceOutline =
+      IconData(59763, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const scanningOutline =
+      IconData(59764, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const searchOutline =
+      IconData(59765, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const sendOutline =
+      IconData(59766, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const setOutline =
+      IconData(59767, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const shopbagOutline =
+      IconData(59768, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const shrinkOutline =
+      IconData(59769, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const smileFill =
+      IconData(59770, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const smileOutline =
+      IconData(59771, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const soundMuteFill =
+      IconData(59772, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const soundMuteOutline =
+      IconData(59773, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const soundOutline =
+      IconData(59774, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const starFill =
+      IconData(59775, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const starOutline =
+      IconData(59776, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const stopOutline =
+      IconData(59777, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const systemQRcodeOutline =
+      IconData(59778, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const tagOutline =
+      IconData(59779, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const teamFill =
+      IconData(59780, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const teamOutline =
+      IconData(59781, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const textDeletionOutline =
+      IconData(59782, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const textOutline =
+      IconData(59783, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const transportQRcodeOutline =
+      IconData(59784, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const travelOutline =
+      IconData(59785, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const truckOutline =
+      IconData(59786, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const undoOutline =
+      IconData(59787, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const unlockOutline =
+      IconData(59788, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const unorderedListOutline =
+      IconData(59789, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const upCircleOutline =
+      IconData(59790, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const uploadOutline =
+      IconData(59791, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const upOutline =
+      IconData(59792, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const userAddOutline =
+      IconData(59793, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const userCircleOutline =
+      IconData(59794, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const userContactOutline =
+      IconData(59795, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const userOutline =
+      IconData(59796, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const userSetOutline =
+      IconData(59797, fontFamily: _fontFamily, fontPackage: _fontPackage);
+  static const videoOutline =
+      IconData(59798, fontFamily: _fontFamily, fontPackage: _fontPackage);
 }
