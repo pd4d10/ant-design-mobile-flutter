@@ -18,14 +18,14 @@ class AntToast {
   }) async {
     final entry = OverlayEntry(
       builder: (context) {
-        return Positioned(
-          top: MediaQuery.of(context).size.height *
+        return Align(
+          alignment: Alignment(
+              0,
               (position == AntToastPosition.top
-                  ? 0.2
+                  ? -0.6 // 20%
                   : position == AntToastPosition.bottom
-                      ? 0.8
-                      : 0.5),
-          left: MediaQuery.of(context).size.width * 0.5,
+                      ? 0.6 // 80%
+                      : 0)),
           child: ConstrainedBox(
             constraints: const BoxConstraints(
               minWidth: 96,
@@ -41,6 +41,7 @@ class AntToast {
                   ? const EdgeInsets.all(12)
                   : const EdgeInsets.symmetric(horizontal: 40, vertical: 35),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   if (icon != null)
                     Padding(
