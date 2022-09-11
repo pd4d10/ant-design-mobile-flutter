@@ -1,4 +1,4 @@
-import 'package:example/toast.dart';
+import 'package:example/tag.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
           decoration: const BoxDecoration(color: Color(0xfffafbfc)),
           // padding: const EdgeInsets.all(8.0),
-          child: const ToastExample(),
+          child: const TagExample(),
         ),
       ),
     );
