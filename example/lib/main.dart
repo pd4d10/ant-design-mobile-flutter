@@ -1,8 +1,4 @@
-import 'package:example/button.dart';
-import 'package:example/icons.dart';
-import 'package:example/list.dart';
-import 'package:example/nav_bar.dart';
-import 'package:example/tab_bar.dart';
+import 'package:example/toast.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -71,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
           decoration: const BoxDecoration(color: Color(0xfffafbfc)),
           // padding: const EdgeInsets.all(8.0),
-          child: const ListExample(),
+          child: const ToastExample(),
         ),
       ),
     );
