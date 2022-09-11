@@ -5,8 +5,8 @@ const icons = require(`antd-mobile-icons`);
 
 try {
   fs.rmSync("dist", { recursive: true });
-  fs.mkdirSync("dist/svg", { recursive: true });
 } catch {}
+fs.mkdirSync("dist/svg", { recursive: true });
 
 Object.entries(icons).forEach(([key, Component]) => {
   const svg = renderToString(createElement(Component));
