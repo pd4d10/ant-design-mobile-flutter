@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:antd_mobile/antd_mobile.dart';
 import 'package:flutter/widgets.dart';
 
@@ -8,6 +10,9 @@ enum AntToastPosition {
 }
 
 class AntToast {
+  static OverlayEntry? _entry;
+  static Timer? _timer;
+
   static Future<void> show(
     BuildContext context, {
     required Widget content,
@@ -16,7 +21,10 @@ class AntToast {
     Duration duration = const Duration(seconds: 2),
     bool maskClickable = true,
   }) async {
-    final entry = OverlayEntry(
+    _entry?.remove();
+    _timer?.cancel();
+
+    _entry = OverlayEntry(
       builder: (context) {
         return Align(
           alignment: Alignment(
@@ -65,9 +73,11 @@ class AntToast {
       },
     );
 
-    Overlay.of(context)?.insert(entry);
+    Overlay.of(context)?.insert(_entry!);
 
-    await Future.delayed(duration);
-    entry.remove();
+    _timer = Timer(duration, () {
+      _entry?.remove();
+      _entry = null;
+    });
   }
 }
