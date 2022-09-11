@@ -1,6 +1,5 @@
 import 'package:antd_mobile/antd_mobile.dart';
 import 'package:example/utils.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class NavBarExample extends StatelessWidget {
@@ -21,7 +20,7 @@ class NavBarExample extends StatelessWidget {
           title: 'Left',
           padding: 0,
           child: AntNavBar(
-            left: Icon(Icons.arrow_back_ios),
+            left: Icon(AntIcons.leftOutline),
             title: Text('Title'),
           ),
         ),
@@ -29,9 +28,9 @@ class NavBarExample extends StatelessWidget {
           title: 'Right',
           padding: 0,
           child: AntNavBar(
-            left: Icon(Icons.arrow_back_ios),
+            left: Icon(AntIcons.leftOutline),
             title: Text('Title'),
-            right: Icon(Icons.more_horiz),
+            right: Icon(AntIcons.moreOutline),
           ),
         ),
       ],

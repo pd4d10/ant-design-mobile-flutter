@@ -9,17 +9,27 @@ class IconsExample extends StatelessWidget {
     return Wrap(
       children: [
         for (final data in iconsData.entries)
-          Column(
-            children: [
-              Icon(
-                IconData(
-                  data.value,
-                  fontFamily: "AntDesignMobile",
-                  fontPackage: "antd_mobile",
+          Container(
+            width: 100,
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              children: [
+                Icon(
+                  IconData(
+                    data.value,
+                    fontFamily: "AntDesignMobile",
+                    fontPackage: "antd_mobile",
+                  ),
+                  size: 36,
                 ),
-              ),
-              Text(data.key),
-            ],
+                const SizedBox(height: 4),
+                Text(
+                  data.key,
+                  style: const TextStyle(fontSize: 12),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           )
       ],
     );

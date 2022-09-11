@@ -58,7 +58,9 @@ class AntTabBar extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    if (item.icon != null) item.icon!,
+                    if (item.icon != null && !active) item.icon!,
+                    if (item.activeIcon != null && active) item.activeIcon!,
+                    if (item.title != null) const SizedBox(height: 2),
                     if (item.title != null)
                       Text(
                         item.title!,

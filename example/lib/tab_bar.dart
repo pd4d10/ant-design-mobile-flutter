@@ -1,6 +1,5 @@
 import 'package:antd_mobile/antd_mobile.dart';
 import 'package:example/utils.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class TabBarExample extends StatefulWidget {
@@ -10,25 +9,25 @@ class TabBarExample extends StatefulWidget {
     AntTabBarItem(
       key: 'home',
       title: 'Home',
-      icon: Icon(Icons.home),
+      icon: Icon(AntIcons.appOutline),
     ),
     AntTabBarItem(
       key: 'todo',
       title: 'Todo',
-      icon: Icon(Icons.today_outlined),
+      icon: Icon(AntIcons.unorderedListOutline),
       badge: Text('5'),
     ),
     AntTabBarItem(
       key: 'message',
       title: 'Message',
-      icon: Icon(Icons.message_outlined),
-      activeIcon: Icon(Icons.message),
+      icon: Icon(AntIcons.messageOutline),
+      activeIcon: Icon(AntIcons.messageFill),
       badge: Text('99+'),
     ),
     AntTabBarItem(
       key: 'personalCenter',
       title: 'Me',
-      icon: Icon(Icons.person),
+      icon: Icon(AntIcons.userOutline),
     ),
   ];
 
@@ -63,10 +62,15 @@ class _TabBarExampleState extends State<TabBarExample> {
           padding: 0,
           child: AntTabBar(
             activeKey: _active,
-            items: TabBarExample.items
-                .map((e) =>
-                    AntTabBarItem(key: e.key, icon: e.icon, badge: e.badge))
-                .toList(),
+            items: [
+              for (final e in TabBarExample.items)
+                AntTabBarItem(
+                  key: e.key,
+                  icon: e.icon,
+                  activeIcon: e.icon,
+                  badge: e.badge,
+                )
+            ],
             onChange: _handleChange,
           ),
         ),
@@ -75,10 +79,14 @@ class _TabBarExampleState extends State<TabBarExample> {
           padding: 0,
           child: AntTabBar(
             activeKey: _active,
-            items: TabBarExample.items
-                .map((e) =>
-                    AntTabBarItem(key: e.key, title: e.title, badge: e.badge))
-                .toList(),
+            items: [
+              for (final e in TabBarExample.items)
+                AntTabBarItem(
+                  key: e.key,
+                  title: e.title,
+                  badge: e.badge,
+                )
+            ],
             onChange: _handleChange,
           ),
         ),
