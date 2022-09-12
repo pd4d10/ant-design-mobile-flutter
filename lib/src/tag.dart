@@ -7,6 +7,7 @@ class AntTag extends StatelessWidget {
     required this.child,
     this.color = const Color(0xff666666),
     this.outline = false,
+    this.round = false,
   });
 
   final Widget child;
@@ -15,6 +16,8 @@ class AntTag extends StatelessWidget {
 
   final bool outline;
 
+  final bool round;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +25,7 @@ class AntTag extends StatelessWidget {
       decoration: BoxDecoration(
         color: outline ? null : color,
         border: Border.all(color: color),
-        borderRadius: const BorderRadius.all(Radius.circular(2)),
+        borderRadius: BorderRadius.all(Radius.circular(round ? 100 : 2)),
       ),
       child: DefaultTextStyle(
         style: TextStyle(

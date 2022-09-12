@@ -20,18 +20,27 @@ class TagExample extends StatelessWidget {
             children: const [
               AntTag(
                 outline: true,
+                child: Text('Default'),
+              ),
+              AntTag(
+                outline: true,
                 color: AntTheme.primary,
                 child: Text('Primary'),
               ),
               AntTag(
                 outline: true,
-                color: Color(0xff87d068),
-                child: Text('87d068'),
+                color: AntTheme.success,
+                child: Text('Success'),
               ),
               AntTag(
                 outline: true,
-                color: Color(0xffff6430),
-                child: Text('ff6430'),
+                color: AntTheme.warning,
+                child: Text('Warning'),
+              ),
+              AntTag(
+                outline: true,
+                color: AntTheme.danger,
+                child: Text('Danger'),
               ),
             ],
           ),
@@ -49,6 +58,14 @@ class TagExample extends StatelessWidget {
             ],
           ),
         ),
+        const DemoBlock(
+          title: '圆角标签',
+          child: AntTag(
+            round: true,
+            color: AntTheme.primary,
+            child: Text('Round'),
+          ),
+        ),
         DemoBlock(
           title: '自定义颜色',
           child: Wrap(
@@ -59,7 +76,7 @@ class TagExample extends StatelessWidget {
               AntTag(color: Color(0xff108ee9), child: Text('108ee9')),
             ],
           ),
-        )
+        ),
       ],
     );
   }
