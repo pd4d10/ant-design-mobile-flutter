@@ -1,12 +1,17 @@
 import 'package:antd_mobile/antd_mobile.dart';
 import 'package:flutter/widgets.dart';
 
+enum AntTagFill {
+  solid,
+  outline,
+}
+
 class AntTag extends StatelessWidget {
   const AntTag({
     super.key,
     required this.child,
     this.color = const Color(0xff666666),
-    this.outline = false,
+    this.fill = AntTagFill.solid,
     this.round = false,
   });
 
@@ -14,7 +19,7 @@ class AntTag extends StatelessWidget {
 
   final Color color;
 
-  final bool outline;
+  final AntTagFill fill;
 
   final bool round;
 
@@ -23,7 +28,7 @@ class AntTag extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
       decoration: BoxDecoration(
-        color: outline ? null : color,
+        color: fill == AntTagFill.outline ? null : color,
         border: Border.all(color: color),
         borderRadius: BorderRadius.all(Radius.circular(round ? 100 : 2)),
       ),
@@ -31,7 +36,7 @@ class AntTag extends StatelessWidget {
         style: TextStyle(
           fontSize: AntTheme.fontSize3,
           height: 1,
-          color: outline ? color : AntTheme.white,
+          color: fill == AntTagFill.outline ? color : AntTheme.white,
         ),
         child: child,
       ),

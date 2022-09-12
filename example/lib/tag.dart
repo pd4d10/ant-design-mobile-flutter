@@ -19,26 +19,26 @@ class TagExample extends StatelessWidget {
             spacing: 8,
             children: const [
               AntTag(
-                outline: true,
+                fill: AntTagFill.outline,
                 child: Text('Default'),
               ),
               AntTag(
-                outline: true,
+                fill: AntTagFill.outline,
                 color: AntTheme.primary,
                 child: Text('Primary'),
               ),
               AntTag(
-                outline: true,
+                fill: AntTagFill.outline,
                 color: AntTheme.success,
                 child: Text('Success'),
               ),
               AntTag(
-                outline: true,
+                fill: AntTagFill.outline,
                 color: AntTheme.warning,
                 child: Text('Warning'),
               ),
               AntTag(
-                outline: true,
+                fill: AntTagFill.outline,
                 color: AntTheme.danger,
                 child: Text('Danger'),
               ),
