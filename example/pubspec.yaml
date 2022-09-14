@@ -31,6 +31,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  go_router:
   antd_mobile:
     path: ..
 

@@ -1,9 +1,56 @@
+import 'package:antd_mobile/antd_mobile.dart';
+import 'package:example/button.dart';
+import 'package:example/icons.dart';
 import 'package:example/list.dart';
+import 'package:example/nav_bar.dart';
+import 'package:example/tab_bar.dart';
+import 'package:example/tag.dart';
+import 'package:example/toast.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+final _routes = [
+  GoRoute(
+    path: '/button',
+    builder: (context, state) => const ButtonExample(),
+  ),
+  GoRoute(
+    path: '/icons',
+    builder: (context, state) => const IconsExample(),
+  ),
+  GoRoute(
+    path: '/list',
+    builder: (context, state) => const ListExample(),
+  ),
+  GoRoute(
+    path: '/nav-bar',
+    builder: (context, state) => const NavBarExample(),
+  ),
+  GoRoute(
+    path: '/tab-bar',
+    builder: (context, state) => const TabBarExample(),
+  ),
+  GoRoute(
+    path: '/tag',
+    builder: (context, state) => const TagExample(),
+  ),
+  GoRoute(
+    path: '/toast',
+    builder: (context, state) => const ToastExample(),
+  ),
+];
+
+final _router = GoRouter(routes: [
+  GoRoute(
+    path: '/',
+    builder: (context, state) => const MyHomePage(title: 'Antd Mobile'),
+  ),
+  ..._routes
+]);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,7 +58,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -25,7 +72,9 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routeInformationProvider: _router.routeInformationProvider,
+      routeInformationParser: _router.routeInformationParser,
+      routerDelegate: _router.routerDelegate,
     );
   }
 }
@@ -63,12 +112,16 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: const BoxDecoration(color: Color(0xfffafbfc)),
-          // padding: const EdgeInsets.all(8.0),
-          child: const ListExample(),
-        ),
+      body: AntList(
+        items: [
+          for (final route in _routes)
+            AntListItem(
+              child: Text(route.path),
+              onClick: () {
+                context.go(route.path);
+              },
+            )
+        ],
       ),
     );
   }
