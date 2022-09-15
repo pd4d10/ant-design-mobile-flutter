@@ -1,12 +1,12 @@
 import 'package:antd_mobile/antd_mobile.dart';
 import 'package:example/button.dart';
 import 'package:example/icons.dart';
+import 'package:example/infinite_scroll.dart';
 import 'package:example/list.dart';
 import 'package:example/nav_bar.dart';
 import 'package:example/tab_bar.dart';
 import 'package:example/tag.dart';
 import 'package:example/toast.dart';
-import 'package:example/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -24,6 +24,11 @@ final _routes = [
     name: 'Icons',
     path: '/icons',
     builder: (context, state) => const IconsExample(),
+  ),
+  GoRoute(
+    name: 'InfiniteScroll',
+    path: '/infinite-scroll',
+    builder: (context, state) => const InfiniteScrollExample(),
   ),
   GoRoute(
     name: 'List',
@@ -55,10 +60,24 @@ final _routes = [
       (e) => GoRoute(
         name: e.name,
         path: e.path,
-        builder: (context, state) => DemoScaffold(
-          title: e.name!,
-          child: e.builder(context, state),
-        ),
+        builder: (context, state) {
+          var child = e.builder(context, state);
+
+          if (e.name != 'InfiniteScroll') {
+            child = SingleChildScrollView(
+              child: Container(
+                decoration: const BoxDecoration(color: Color(0xfffafbfc)),
+                // padding: const EdgeInsets.all(8.0),
+                child: child,
+              ),
+            );
+          }
+
+          return Scaffold(
+            appBar: AppBar(title: Text(e.name!)),
+            body: child,
+          );
+        },
       ),
     )
     .toList();
