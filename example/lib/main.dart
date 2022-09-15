@@ -6,6 +6,7 @@ import 'package:example/nav_bar.dart';
 import 'package:example/tab_bar.dart';
 import 'package:example/tag.dart';
 import 'package:example/toast.dart';
+import 'package:example/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,34 +16,52 @@ void main() {
 
 final _routes = [
   GoRoute(
+    name: 'Button',
     path: '/button',
     builder: (context, state) => const ButtonExample(),
   ),
   GoRoute(
+    name: 'Icons',
     path: '/icons',
     builder: (context, state) => const IconsExample(),
   ),
   GoRoute(
+    name: 'List',
     path: '/list',
     builder: (context, state) => const ListExample(),
   ),
   GoRoute(
+    name: 'NavBar',
     path: '/nav-bar',
     builder: (context, state) => const NavBarExample(),
   ),
   GoRoute(
+    name: 'TabBar',
     path: '/tab-bar',
     builder: (context, state) => const TabBarExample(),
   ),
   GoRoute(
+    name: 'Tag',
     path: '/tag',
     builder: (context, state) => const TagExample(),
   ),
   GoRoute(
+    name: 'Toast',
     path: '/toast',
     builder: (context, state) => const ToastExample(),
   ),
-];
+]
+    .map(
+      (e) => GoRoute(
+        name: e.name,
+        path: e.path,
+        builder: (context, state) => DemoScaffold(
+          title: e.name!,
+          child: e.builder(context, state),
+        ),
+      ),
+    )
+    .toList();
 
 final _router = GoRouter(routes: [
   GoRoute(
@@ -116,9 +135,9 @@ class _MyHomePageState extends State<MyHomePage> {
         items: [
           for (final route in _routes)
             AntListItem(
-              child: Text(route.path),
+              child: Text(route.name!),
               onClick: () {
-                context.go(route.path);
+                context.push(route.path);
               },
             )
         ],
