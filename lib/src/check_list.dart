@@ -33,6 +33,7 @@ class AntCheckList extends StatelessWidget {
                     child: activeIcon,
                   )
                 : null,
+            arrow: null,
             onClick: () {
               final copy = [...value];
 

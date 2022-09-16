@@ -9,6 +9,7 @@ class AntListItem {
     this.extra,
     this.description,
     this.title,
+    this.arrow = const Icon(AntIcons.rightOutline),
   });
 
   //
@@ -23,6 +24,8 @@ class AntListItem {
   final Widget? description;
 
   final Widget? title;
+
+  final Widget? arrow;
 }
 
 class AntList extends StatefulWidget {
@@ -158,11 +161,17 @@ class _AntListState extends State<AntList> {
                                     child: e.value.extra!,
                                   ),
                                 ),
-                              if (e.value.onClick != null)
-                                const Padding(
-                                  padding: EdgeInsets.only(left: 4),
-                                  child: Icon(AntIcons.rightOutline,
-                                      size: 19, color: AntTheme.light),
+                              if (e.value.onClick != null &&
+                                  e.value.arrow != null)
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 4),
+                                  child: IconTheme(
+                                    data: const IconThemeData(
+                                      size: 19,
+                                      color: AntTheme.light,
+                                    ),
+                                    child: e.value.arrow!,
+                                  ),
                                 ),
                             ],
                           ),
