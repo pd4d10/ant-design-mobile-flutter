@@ -11,7 +11,7 @@ class ButtonExample extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         DemoBlock(
-          title: 'Fill',
+          title: '填充模式',
           child: Wrap(
             spacing: 8,
             children: const [
@@ -34,7 +34,7 @@ class ButtonExample extends StatelessWidget {
           ),
         ),
         const DemoBlock(
-          title: 'Block',
+          title: '块级按钮',
           child: AntButton(
             block: true,
             color: AntTheme.primary,
@@ -43,7 +43,7 @@ class ButtonExample extends StatelessWidget {
           ),
         ),
         DemoBlock(
-          title: 'Size',
+          title: '按钮尺寸',
           child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             spacing: 8,
@@ -72,7 +72,7 @@ class ButtonExample extends StatelessWidget {
           ),
         ),
         DemoBlock(
-          title: 'Color',
+          title: '语义按钮',
           child: Wrap(
             spacing: 8,
             runSpacing: 8,

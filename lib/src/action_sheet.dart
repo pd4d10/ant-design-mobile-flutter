@@ -1,4 +1,5 @@
 import 'package:antd_mobile/antd_mobile.dart';
+import 'package:antd_mobile/src/_tapable.dart';
 import 'package:flutter/widgets.dart';
 
 const _itemDecoration = BoxDecoration(
@@ -31,13 +32,15 @@ class AntActionSheetItem<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return Tapable(
       onTap: () {
         Navigator.of(context).pop(action.key);
       },
-      child: Container(
+      builder: (active) => Container(
         padding: const EdgeInsets.all(16),
-        decoration: _itemDecoration,
+        decoration: _itemDecoration.copyWith(
+          color: active ? AntTheme.border : null,
+        ),
         child: Center(
           child: Opacity(
             opacity: action.disabled ? .4 : 1,

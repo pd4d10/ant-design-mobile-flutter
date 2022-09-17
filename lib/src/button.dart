@@ -1,4 +1,5 @@
 import 'package:antd_mobile/antd_mobile.dart';
+import 'package:antd_mobile/src/_tapable.dart';
 import 'package:flutter/widgets.dart';
 
 enum AntButtonFill {
@@ -20,7 +21,7 @@ enum AntButtonSize {
   large,
 }
 
-class AntButton extends StatefulWidget {
+class AntButton extends StatelessWidget {
   const AntButton({
     Key? key,
     required this.child,
@@ -68,14 +69,6 @@ class AntButton extends StatefulWidget {
   /// The size of the button.
   final AntButtonSize size;
 
-  @override
-  State<AntButton> createState() => _AntButtonState();
-}
-
-class _AntButtonState extends State<AntButton>
-    with SingleTickerProviderStateMixin {
-  var _active = false;
-
   static const _size = {
     AntButtonSize.mini: [3.0, AntTheme.fontSize5],
     AntButtonSize.small: [3.0, AntTheme.fontSize7],
@@ -85,44 +78,21 @@ class _AntButtonState extends State<AntButton>
 
   @override
   Widget build(BuildContext context) {
-    final bool enabled = !widget.disabled;
     final backgroundColor =
-        widget.fill == AntButtonFill.solid ? widget.color : AntTheme.white;
+        fill == AntButtonFill.solid ? color : AntTheme.white;
 
-    var borderColor =
-        widget.fill == AntButtonFill.outline ? widget.color : backgroundColor;
-    if (widget.color == AntTheme.white) borderColor = AntTheme.border;
+    var borderColor = fill == AntButtonFill.outline ? color : backgroundColor;
+    if (color == AntTheme.white) borderColor = AntTheme.border;
 
-    var textColor = widget.color;
-    if (widget.fill == AntButtonFill.solid) textColor = AntTheme.white;
-    if (widget.color == AntTheme.white) textColor = AntTheme.text;
+    var textColor = color;
+    if (fill == AntButtonFill.solid) textColor = AntTheme.white;
+    if (color == AntTheme.white) textColor = AntTheme.text;
 
-    return MouseRegion(
-      cursor: enabled ? SystemMouseCursors.click : MouseCursor.defer,
-      child: GestureDetector(
-        onTapDown: (details) {
-          if (enabled) {
-            setState(() {
-              _active = true;
-            });
-          }
-        },
-        onTapUp: (details) {
-          if (enabled) {
-            setState(() {
-              _active = false;
-            });
-          }
-        },
-        onTapCancel: () {
-          if (enabled) {
-            setState(() {
-              _active = false;
-            });
-          }
-        },
-        onTap: widget.onClick,
-        child: Semantics(
+    return Tapable(
+      onTap: onClick,
+      disabled: disabled,
+      builder: (active) {
+        return Semantics(
           button: true,
           child: DecoratedBox(
             decoration: BoxDecoration(
@@ -134,26 +104,28 @@ class _AntButtonState extends State<AntButton>
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      vertical: _size[widget.size]![0], horizontal: 12),
+                      vertical: _size[size]![0], horizontal: 12),
                   child: DefaultTextStyle(
                     style: TextStyle(
-                        color: textColor, fontSize: _size[widget.size]![1]),
+                      color: textColor,
+                      fontSize: _size[size]![1],
+                    ),
                     child: IconTheme(
                       data: IconThemeData(color: textColor),
-                      child: widget.child,
+                      child: child,
                     ),
                   ),
                 ),
                 Positioned.fill(
                   child: Container(
-                    color: Color.fromRGBO(0, 0, 0, _active ? .08 : 0),
+                    color: Color.fromRGBO(0, 0, 0, active ? .08 : 0),
                   ),
                 )
               ],
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
