@@ -124,26 +124,32 @@ class _AntButtonState extends State<AntButton>
         onTap: widget.onClick,
         child: Semantics(
           button: true,
-          child: Opacity(
-            opacity: _active ? .8 : 1, // TODO:
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(4)),
-                border: Border.all(color: borderColor),
-                color: backgroundColor,
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                    vertical: _size[widget.size]![0], horizontal: 12),
-                child: DefaultTextStyle(
-                  style: TextStyle(
-                      color: textColor, fontSize: _size[widget.size]![1]),
-                  child: IconTheme(
-                    data: IconThemeData(color: textColor),
-                    child: widget.child,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(4)),
+              border: Border.all(color: borderColor),
+              color: backgroundColor,
+            ),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: _size[widget.size]![0], horizontal: 12),
+                  child: DefaultTextStyle(
+                    style: TextStyle(
+                        color: textColor, fontSize: _size[widget.size]![1]),
+                    child: IconTheme(
+                      data: IconThemeData(color: textColor),
+                      child: widget.child,
+                    ),
                   ),
                 ),
-              ),
+                Positioned.fill(
+                  child: Container(
+                    color: Color.fromRGBO(0, 0, 0, _active ? .08 : 0),
+                  ),
+                )
+              ],
             ),
           ),
         ),
