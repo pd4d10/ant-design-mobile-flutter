@@ -1,3 +1,4 @@
+export 'package:antd_mobile/src/action_sheet.dart';
 export 'package:antd_mobile/src/button.dart';
 export 'package:antd_mobile/src/check_list.dart';
 export 'package:antd_mobile/src/icons.dart';

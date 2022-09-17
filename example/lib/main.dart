@@ -1,4 +1,5 @@
 import 'package:antd_mobile/antd_mobile.dart';
+import 'package:example/action_sheet.dart';
 import 'package:example/button.dart';
 import 'package:example/check_list.dart';
 import 'package:example/icons.dart';
@@ -16,6 +17,11 @@ void main() {
 }
 
 final _routes = [
+  GoRoute(
+    name: 'ActionSheet',
+    path: '/action-sheet',
+    builder: (context, state) => const ActionSheetExample(),
+  ),
   GoRoute(
     name: 'Button',
     path: '/button',
