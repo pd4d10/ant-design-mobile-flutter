@@ -83,12 +83,10 @@ class AntActionSheet extends StatelessWidget {
     Widget? extra,
     Widget? cancelText,
   }) async {
-    return showGeneralDialog<T>(
+    return AntPopup.show<T>(
       context: context,
-      barrierDismissible: closeOnMaskClick,
-      barrierLabel: 'Cancel',
-      anchorPoint: const Offset(100, 100),
-      pageBuilder: (context, animation, secondaryAnimation) {
+      closeOnMaskClick: closeOnMaskClick,
+      builder: (context) {
         return ClipRRect(
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(8),

@@ -6,6 +6,7 @@ import 'package:example/icons.dart';
 import 'package:example/infinite_scroll.dart';
 import 'package:example/list.dart';
 import 'package:example/nav_bar.dart';
+import 'package:example/popup.dart';
 import 'package:example/tab_bar.dart';
 import 'package:example/tag.dart';
 import 'package:example/toast.dart';
@@ -51,6 +52,11 @@ final _routes = [
     name: 'NavBar',
     path: '/nav-bar',
     builder: (context, state) => const NavBarExample(),
+  ),
+  GoRoute(
+    name: 'Popup',
+    path: '/popup',
+    builder: (context, state) => const PopupExample(),
   ),
   GoRoute(
     name: 'TabBar',

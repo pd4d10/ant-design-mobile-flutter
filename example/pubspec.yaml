@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   go_router:
+  flutter_lorem:
   antd_mobile:
     path: ..
 
