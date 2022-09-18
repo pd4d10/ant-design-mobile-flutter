@@ -34,6 +34,7 @@ class AntActionSheetItem<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tapable(
       onTap: () {
+        action.onClick?.call();
         Navigator.of(context).pop(action.key);
       },
       builder: (active) => Container(
