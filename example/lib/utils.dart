@@ -1,31 +1,4 @@
-import 'package:flutter/material.dart';
-
-class DemoScaffold extends StatelessWidget {
-  const DemoScaffold({
-    super.key,
-    required this.title,
-    required this.child,
-  });
-  final String title;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(title),
-      ),
-      body: SingleChildScrollView(
-          child: Container(
-        decoration: const BoxDecoration(color: Color(0xfffafbfc)),
-        // padding: const EdgeInsets.all(8.0),
-        child: child,
-      )),
-    );
-  }
-}
+import 'package:flutter/widgets.dart';
 
 class DemoBlock extends StatelessWidget {
   const DemoBlock({
