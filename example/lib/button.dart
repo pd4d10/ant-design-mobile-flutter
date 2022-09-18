@@ -85,6 +85,48 @@ class ButtonExample extends StatelessWidget {
             ],
           ),
         ),
+        DemoBlock(
+          title: '形状',
+          child: Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: const [
+              AntButton(
+                shape: AntButtonShape.defaultValue,
+                color: AntTheme.primary,
+                child: Text('Default Button'),
+              ),
+              AntButton(
+                shape: AntButtonShape.rounded,
+                color: AntTheme.primary,
+                child: Text('Rounded Button'),
+              ),
+              AntButton(
+                shape: AntButtonShape.rectangular,
+                color: AntTheme.primary,
+                child: Text('Rectangular Button'),
+              ),
+            ],
+          ),
+        ),
+        DemoBlock(
+          title: '禁用状态',
+          child: Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: const [
+              AntButton(
+                disabled: true,
+                child: Text('Disabled'),
+              ),
+              AntButton(
+                disabled: true,
+                color: AntTheme.primary,
+                child: Text('Disabled'),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }

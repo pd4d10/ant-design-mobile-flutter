@@ -81,51 +81,67 @@ class AntButton extends StatelessWidget {
     final backgroundColor =
         fill == AntButtonFill.solid ? color : AntTheme.white;
 
-    var borderColor = fill == AntButtonFill.outline ? color : backgroundColor;
-    if (color == AntTheme.white) borderColor = AntTheme.border;
+    final borderColor = color == AntTheme.white
+        ? AntTheme.border
+        : fill == AntButtonFill.outline
+            ? color
+            : backgroundColor;
 
-    var textColor = color;
-    if (fill == AntButtonFill.solid) textColor = AntTheme.white;
-    if (color == AntTheme.white) textColor = AntTheme.text;
+    final textColor = color == AntTheme.white
+        ? AntTheme.text
+        : fill == AntButtonFill.solid
+            ? AntTheme.white
+            : color;
 
-    return Tapable(
-      onTap: onClick,
-      disabled: disabled,
-      builder: (active) {
-        return Semantics(
-          button: true,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(4)),
-              border: Border.all(color: borderColor),
-              color: backgroundColor,
-            ),
-            child: Stack(
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: _size[size]![0], horizontal: 12),
-                  child: DefaultTextStyle(
-                    style: TextStyle(
-                      color: textColor,
-                      fontSize: _size[size]![1],
-                    ),
-                    child: IconTheme(
-                      data: IconThemeData(color: textColor),
-                      child: child,
-                    ),
+    return Semantics(
+      button: true,
+      child: Tapable(
+        onTap: onClick,
+        disabled: disabled,
+        builder: (active) {
+          return Opacity(
+            opacity: disabled ? .4 : 1,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    shape == AntButtonShape.defaultValue
+                        ? 4
+                        : shape == AntButtonShape.rectangular
+                            ? 0
+                            : 100, // TODO:
                   ),
                 ),
-                Positioned.fill(
-                  child: Container(
-                    color: Color.fromRGBO(0, 0, 0, active ? .08 : 0),
+                border: Border.all(color: borderColor),
+                color: backgroundColor,
+              ),
+              child: Stack(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        vertical: _size[size]![0], horizontal: 12),
+                    child: DefaultTextStyle(
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: _size[size]![1],
+                      ),
+                      child: IconTheme(
+                        data: IconThemeData(color: textColor),
+                        child: child,
+                      ),
+                    ),
                   ),
-                )
-              ],
+                  Positioned.fill(
+                    child: Container(
+                      color: Color.fromRGBO(0, 0, 0, active ? .08 : 0),
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
