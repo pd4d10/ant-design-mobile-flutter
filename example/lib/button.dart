@@ -92,7 +92,7 @@ class ButtonExample extends StatelessWidget {
             runSpacing: 8,
             children: const [
               AntButton(
-                shape: AntButtonShape.defaultValue,
+                shape: AntButtonShape.defaults,
                 color: AntTheme.primary,
                 child: Text('Default Button'),
               ),

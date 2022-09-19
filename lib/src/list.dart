@@ -33,7 +33,7 @@ class AntListItem {
 }
 
 enum AntListMode {
-  defaultValue,
+  defaults,
   card,
 }
 
@@ -42,7 +42,7 @@ class AntList extends StatefulWidget {
     super.key,
     this.header,
     required this.items,
-    this.mode = AntListMode.defaultValue,
+    this.mode = AntListMode.defaults,
   });
 
   /// The title of list.

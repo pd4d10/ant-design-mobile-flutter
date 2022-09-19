@@ -9,7 +9,7 @@ enum AntButtonFill {
 }
 
 enum AntButtonShape {
-  defaultValue,
+  defaults,
   rounded,
   rectangular,
 }
@@ -33,7 +33,7 @@ class AntButton extends StatelessWidget {
     this.loadingIcon = const Text('loading'),
     this.loadingText,
     this.onClick,
-    this.shape = AntButtonShape.defaultValue,
+    this.shape = AntButtonShape.defaults,
     this.size = AntButtonSize.middle,
   }) : super(key: key);
 
@@ -105,7 +105,7 @@ class AntButton extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(
                   Radius.circular(
-                    shape == AntButtonShape.defaultValue
+                    shape == AntButtonShape.defaults
                         ? 4
                         : shape == AntButtonShape.rectangular
                             ? 0
