@@ -32,17 +32,25 @@ class AntListItem {
   final bool disabled;
 }
 
+enum AntListMode {
+  defaultValue,
+  card,
+}
+
 class AntList extends StatefulWidget {
   const AntList({
     super.key,
     this.header,
     required this.items,
+    this.mode = AntListMode.defaultValue,
   });
 
   /// The title of list.
   final Widget? header;
 
   final List<AntListItem> items;
+
+  final AntListMode mode;
 
   @override
   State<AntList> createState() => _AntListState();
@@ -51,51 +59,62 @@ class AntList extends StatefulWidget {
 class _AntListState extends State<AntList> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (widget.header != null)
-          DefaultTextStyle(
-            style: const TextStyle(
-              fontSize: AntTheme.fontSize7,
-              color: AntTheme.weak,
-            ),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              child: widget.header!,
-            ),
-          ),
-        DefaultTextStyle(
-          style: const TextStyle(
-            fontSize: AntTheme.fontSize9,
-            color: AntTheme.text,
-            height: 1.5,
-          ),
-          child: Container(
-            decoration: const BoxDecoration(
-              color: AntTheme.white,
-              border: Border.symmetric(
-                horizontal: BorderSide(color: AntTheme.border),
+    final card = widget.mode == AntListMode.card;
+
+    return Padding(
+      padding: EdgeInsets.all(card ? 12 : 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (widget.header != null)
+            DefaultTextStyle(
+              style: const TextStyle(
+                fontSize: AntTheme.fontSize7,
+                color: AntTheme.weak,
+              ),
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: card ? 0 : 12, vertical: 8),
+                child: widget.header!,
               ),
             ),
-            child: Column(
-              children: [
-                for (final e in widget.items.asMap().entries)
-                  if (e.value.onClick == null)
-                    _buildItem(e.key, e.value)
-                  else
-                    Tapable(
-                      onTap: e.value.onClick,
-                      disabled: e.value.disabled,
-                      builder: (active) {
-                        return _buildItem(e.key, e.value, active);
-                      },
-                    ),
-              ],
+          DefaultTextStyle(
+            style: const TextStyle(
+              fontSize: AntTheme.fontSize9,
+              color: AntTheme.text,
+              height: 1.5,
             ),
-          ),
-        )
-      ],
+            child: Container(
+              decoration: card
+                  ? const BoxDecoration(
+                      color: AntTheme.white,
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                    )
+                  : const BoxDecoration(
+                      color: AntTheme.white,
+                      border: Border.symmetric(
+                        horizontal: BorderSide(color: AntTheme.border),
+                      ),
+                    ),
+              child: Column(
+                children: [
+                  for (final e in widget.items.asMap().entries)
+                    if (e.value.onClick == null)
+                      _buildItem(e.key, e.value)
+                    else
+                      Tapable(
+                        onTap: e.value.onClick,
+                        disabled: e.value.disabled,
+                        builder: (active) {
+                          return _buildItem(e.key, e.value, active);
+                        },
+                      ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 

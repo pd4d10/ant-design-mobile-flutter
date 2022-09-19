@@ -82,6 +82,30 @@ class _ListExampleState extends State<ListExample> {
             ),
           ],
         ),
+        AntList(
+          header: const Text('禁用状态'),
+          mode: AntListMode.card,
+          items: [
+            AntListItem(
+              child: const Text('扣款方式'),
+              extra: const Text('按照支付设置的顺序扣款'),
+              onClick: () {},
+            ),
+            AntListItem(
+              child: const Text('月限额'),
+              extra: const Text('200元'),
+              onClick: () {},
+            ),
+            AntListItem(
+              child: const Text('帮助中心'),
+              onClick: () {},
+            ),
+            AntListItem(
+              child: const Text('关闭服务'),
+              onClick: () {},
+            ),
+          ],
+        ),
       ],
     );
   }
