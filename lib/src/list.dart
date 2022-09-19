@@ -81,97 +81,101 @@ class _AntListState extends State<AntList> {
             child: Column(
               children: [
                 for (final e in widget.items.asMap().entries)
-                  Tapable(
-                    onTap: e.value.onClick,
-                    disabled: e.value.disabled,
-                    builder: (active) {
-                      return Opacity(
-                        opacity: e.value.disabled ? .4 : 1,
-                        child: Container(
-                          padding: const EdgeInsets.only(left: 12),
-                          color: active ? AntTheme.border : null,
-                          child: Container(
-                            decoration: e.key == 0
-                                ? null
-                                : const BoxDecoration(
-                                    border: Border(
-                                      top: BorderSide(color: AntTheme.border),
-                                    ),
-                                  ),
-                            child: Container(
-                              padding: const EdgeInsets.fromLTRB(0, 12, 12, 12),
-                              child: Row(
-                                children: [
-                                  if (e.value.prefix != null) ...[
-                                    IconTheme(
-                                      data: const IconThemeData(
-                                        color: AntTheme.text,
-                                        size: 17,
-                                      ),
-                                      child: e.value.prefix!,
-                                    ),
-                                    const SizedBox(width: 12)
-                                  ],
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        if (e.value.title != null)
-                                          DefaultTextStyle(
-                                            style: const TextStyle(
-                                              fontSize: AntTheme.fontSize5,
-                                              color: AntTheme.weak,
-                                            ),
-                                            child: e.value.title!,
-                                          ),
-                                        e.value.child,
-                                        if (e.value.description != null)
-                                          DefaultTextStyle(
-                                            style: const TextStyle(
-                                              fontSize: AntTheme.fontSize5,
-                                              color: AntTheme.weak,
-                                            ),
-                                            child: e.value.description!,
-                                          )
-                                      ],
-                                    ),
-                                  ),
-                                  if (e.value.extra != null)
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 12),
-                                      child: DefaultTextStyle(
-                                        style: const TextStyle(
-                                            fontSize: AntTheme.fontSize7,
-                                            color: AntTheme.weak),
-                                        child: e.value.extra!,
-                                      ),
-                                    ),
-                                  if (e.value.onClick != null &&
-                                      e.value.arrow != null)
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 4),
-                                      child: IconTheme(
-                                        data: const IconThemeData(
-                                          size: 19,
-                                          color: AntTheme.light,
-                                        ),
-                                        child: e.value.arrow!,
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                  if (e.value.onClick == null)
+                    _buildItem(e.key, e.value)
+                  else
+                    Tapable(
+                      onTap: e.value.onClick,
+                      disabled: e.value.disabled,
+                      builder: (active) {
+                        return _buildItem(e.key, e.value, active);
+                      },
+                    ),
               ],
             ),
           ),
         )
       ],
+    );
+  }
+
+  Widget _buildItem(int index, AntListItem item, [bool? active]) {
+    return Opacity(
+      opacity: item.disabled ? .4 : 1,
+      child: Container(
+        padding: const EdgeInsets.only(left: 12),
+        color: active == true ? AntTheme.border : null,
+        child: Container(
+          decoration: index == 0
+              ? null
+              : const BoxDecoration(
+                  border: Border(
+                    top: BorderSide(color: AntTheme.border),
+                  ),
+                ),
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(0, 12, 12, 12),
+            child: Row(
+              children: [
+                if (item.prefix != null) ...[
+                  IconTheme(
+                    data: const IconThemeData(
+                      color: AntTheme.text,
+                      size: 17,
+                    ),
+                    child: item.prefix!,
+                  ),
+                  const SizedBox(width: 12)
+                ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (item.title != null)
+                        DefaultTextStyle(
+                          style: const TextStyle(
+                            fontSize: AntTheme.fontSize5,
+                            color: AntTheme.weak,
+                          ),
+                          child: item.title!,
+                        ),
+                      item.child,
+                      if (item.description != null)
+                        DefaultTextStyle(
+                          style: const TextStyle(
+                            fontSize: AntTheme.fontSize5,
+                            color: AntTheme.weak,
+                          ),
+                          child: item.description!,
+                        )
+                    ],
+                  ),
+                ),
+                if (item.extra != null)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 12),
+                    child: DefaultTextStyle(
+                      style: const TextStyle(
+                          fontSize: AntTheme.fontSize7, color: AntTheme.weak),
+                      child: item.extra!,
+                    ),
+                  ),
+                if (item.onClick != null && item.arrow != null)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 4),
+                    child: IconTheme(
+                      data: const IconThemeData(
+                        size: 19,
+                        color: AntTheme.light,
+                      ),
+                      child: item.arrow!,
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
