@@ -66,9 +66,21 @@ class _ListExampleState extends State<ListExample> {
             ),
           ],
         ),
-        const AntList(
-          header: Text('禁用状态'), // TODO: Disabled
-          items: [],
+        AntList(
+          header: const Text('禁用状态'),
+          items: [
+            AntListItem(
+              prefix: const Icon(AntIcons.unorderedListOutline),
+              child: const Text('账单'),
+              disabled: true,
+              onClick: () {},
+            ),
+            AntListItem(
+              prefix: const Icon(AntIcons.payCircleOutline),
+              child: const Text('总资产'),
+              disabled: true,
+            ),
+          ],
         ),
       ],
     );

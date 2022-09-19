@@ -11,6 +11,7 @@ class AntListItem {
     this.description,
     this.title,
     this.arrow = const Icon(AntIcons.rightOutline),
+    this.disabled = false,
   });
 
   //
@@ -27,6 +28,8 @@ class AntListItem {
   final Widget? title;
 
   final Widget? arrow;
+
+  final bool disabled;
 }
 
 class AntList extends StatefulWidget {
@@ -80,80 +83,84 @@ class _AntListState extends State<AntList> {
                 for (final e in widget.items.asMap().entries)
                   Tapable(
                     onTap: e.value.onClick,
+                    disabled: e.value.disabled,
                     builder: (active) {
-                      return Container(
-                        padding: const EdgeInsets.only(left: 12),
-                        color: active ? AntTheme.border : null,
+                      return Opacity(
+                        opacity: e.value.disabled ? .4 : 1,
                         child: Container(
-                          decoration: e.key == 0
-                              ? null
-                              : const BoxDecoration(
-                                  border: Border(
-                                    top: BorderSide(color: AntTheme.border),
-                                  ),
-                                ),
+                          padding: const EdgeInsets.only(left: 12),
+                          color: active ? AntTheme.border : null,
                           child: Container(
-                            padding: const EdgeInsets.fromLTRB(0, 12, 12, 12),
-                            child: Row(
-                              children: [
-                                if (e.value.prefix != null) ...[
-                                  IconTheme(
-                                    data: const IconThemeData(
-                                      color: AntTheme.text,
-                                      size: 17,
-                                    ),
-                                    child: e.value.prefix!,
-                                  ),
-                                  const SizedBox(width: 12)
-                                ],
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      if (e.value.title != null)
-                                        DefaultTextStyle(
-                                          style: const TextStyle(
-                                            fontSize: AntTheme.fontSize5,
-                                            color: AntTheme.weak,
-                                          ),
-                                          child: e.value.title!,
-                                        ),
-                                      e.value.child,
-                                      if (e.value.description != null)
-                                        DefaultTextStyle(
-                                          style: const TextStyle(
-                                            fontSize: AntTheme.fontSize5,
-                                            color: AntTheme.weak,
-                                          ),
-                                          child: e.value.description!,
-                                        )
-                                    ],
-                                  ),
-                                ),
-                                if (e.value.extra != null)
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 12),
-                                    child: DefaultTextStyle(
-                                      style: const TextStyle(
-                                          fontSize: AntTheme.fontSize7,
-                                          color: AntTheme.weak),
-                                      child: e.value.extra!,
+                            decoration: e.key == 0
+                                ? null
+                                : const BoxDecoration(
+                                    border: Border(
+                                      top: BorderSide(color: AntTheme.border),
                                     ),
                                   ),
-                                if (e.value.onClick != null &&
-                                    e.value.arrow != null)
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 4),
-                                    child: IconTheme(
+                            child: Container(
+                              padding: const EdgeInsets.fromLTRB(0, 12, 12, 12),
+                              child: Row(
+                                children: [
+                                  if (e.value.prefix != null) ...[
+                                    IconTheme(
                                       data: const IconThemeData(
-                                        size: 19,
-                                        color: AntTheme.light,
+                                        color: AntTheme.text,
+                                        size: 17,
                                       ),
-                                      child: e.value.arrow!,
+                                      child: e.value.prefix!,
+                                    ),
+                                    const SizedBox(width: 12)
+                                  ],
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        if (e.value.title != null)
+                                          DefaultTextStyle(
+                                            style: const TextStyle(
+                                              fontSize: AntTheme.fontSize5,
+                                              color: AntTheme.weak,
+                                            ),
+                                            child: e.value.title!,
+                                          ),
+                                        e.value.child,
+                                        if (e.value.description != null)
+                                          DefaultTextStyle(
+                                            style: const TextStyle(
+                                              fontSize: AntTheme.fontSize5,
+                                              color: AntTheme.weak,
+                                            ),
+                                            child: e.value.description!,
+                                          )
+                                      ],
                                     ),
                                   ),
-                              ],
+                                  if (e.value.extra != null)
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 12),
+                                      child: DefaultTextStyle(
+                                        style: const TextStyle(
+                                            fontSize: AntTheme.fontSize7,
+                                            color: AntTheme.weak),
+                                        child: e.value.extra!,
+                                      ),
+                                    ),
+                                  if (e.value.onClick != null &&
+                                      e.value.arrow != null)
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 4),
+                                      child: IconTheme(
+                                        data: const IconThemeData(
+                                          size: 19,
+                                          color: AntTheme.light,
+                                        ),
+                                        child: e.value.arrow!,
+                                      ),
+                                    ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
