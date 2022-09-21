@@ -153,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: SafeArea(
         child: SingleChildScrollView(
           child: AntList(
-            items: [
+            children: [
               for (final route in _routes)
                 AntListItem(
                   child: Text(route.name!),

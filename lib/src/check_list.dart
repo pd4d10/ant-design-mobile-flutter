@@ -20,10 +20,9 @@ class AntCheckList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AntList(
-      items: [
+      children: [
         for (final item in items)
           AntListItem(
-            child: Text(item.value),
             extra: value.contains(item.value)
                 ? IconTheme(
                     data: const IconThemeData(
@@ -50,6 +49,7 @@ class AntCheckList extends StatelessWidget {
 
               onChange(copy);
             },
+            child: Text(item.value),
           )
       ],
     );

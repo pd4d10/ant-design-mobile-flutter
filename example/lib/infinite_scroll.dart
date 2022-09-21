@@ -24,7 +24,7 @@ class _InfiniteScrollExampleState extends State<InfiniteScrollExample> {
         });
       },
       child: AntList(
-        items: List.generate(
+        children: List.generate(
           count * 26,
           (index) => AntListItem(
             child: Text(String.fromCharCode((index % 26) + 65)),

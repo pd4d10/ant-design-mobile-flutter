@@ -2,8 +2,9 @@ import 'package:antd_mobile/antd_mobile.dart';
 import 'package:antd_mobile/src/_tapable.dart';
 import 'package:flutter/widgets.dart';
 
-class AntListItem {
-  AntListItem({
+class AntListItem extends StatelessWidget {
+  const AntListItem({
+    super.key,
     this.prefix,
     required this.child,
     this.onClick,
@@ -30,6 +31,96 @@ class AntListItem {
   final Widget? arrow;
 
   final bool disabled;
+
+  @override
+  Widget build(BuildContext context) {
+    if (onClick == null) {
+      return _buildItem();
+    } else {
+      return Tapable(
+        onTap: onClick,
+        disabled: disabled,
+        builder: (active) {
+          return _buildItem(active);
+        },
+      );
+    }
+  }
+
+  Widget _buildItem([bool? active]) {
+    return Opacity(
+      opacity: disabled ? .4 : 1,
+      child: DefaultTextStyle(
+        style: const TextStyle(
+          fontSize: AntTheme.fontSize9,
+          color: AntTheme.text,
+          height: 1.5,
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(12),
+          color: active == true ? AntTheme.border : null,
+          child: Row(
+            children: [
+              if (prefix != null) ...[
+                IconTheme(
+                  data: const IconThemeData(
+                    color: AntTheme.text,
+                    size: 17,
+                  ),
+                  child: prefix!,
+                ),
+                const SizedBox(width: 12)
+              ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (title != null)
+                      DefaultTextStyle(
+                        style: const TextStyle(
+                          fontSize: AntTheme.fontSize5,
+                          color: AntTheme.weak,
+                        ),
+                        child: title!,
+                      ),
+                    child,
+                    if (description != null)
+                      DefaultTextStyle(
+                        style: const TextStyle(
+                          fontSize: AntTheme.fontSize5,
+                          color: AntTheme.weak,
+                        ),
+                        child: description!,
+                      )
+                  ],
+                ),
+              ),
+              if (extra != null)
+                Padding(
+                  padding: const EdgeInsets.only(left: 12),
+                  child: DefaultTextStyle(
+                    style: const TextStyle(
+                        fontSize: AntTheme.fontSize7, color: AntTheme.weak),
+                    child: extra!,
+                  ),
+                ),
+              if (onClick != null && arrow != null)
+                Padding(
+                  padding: const EdgeInsets.only(left: 4),
+                  child: IconTheme(
+                    data: const IconThemeData(
+                      size: 19,
+                      color: AntTheme.light,
+                    ),
+                    child: arrow!,
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 enum AntListMode {
@@ -41,14 +132,14 @@ class AntList extends StatefulWidget {
   const AntList({
     super.key,
     this.header,
-    required this.items,
+    required this.children,
     this.mode = AntListMode.defaults,
   });
 
   /// The title of list.
   final Widget? header;
 
-  final List<AntListItem> items;
+  final List<Widget> children;
 
   final AntListMode mode;
 
@@ -78,122 +169,39 @@ class _AntListState extends State<AntList> {
                 child: widget.header!,
               ),
             ),
-          DefaultTextStyle(
-            style: const TextStyle(
-              fontSize: AntTheme.fontSize9,
-              color: AntTheme.text,
-              height: 1.5,
-            ),
-            child: Container(
-              decoration: card
-                  ? const BoxDecoration(
-                      color: AntTheme.white,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                    )
-                  : const BoxDecoration(
-                      color: AntTheme.white,
-                      border: Border.symmetric(
-                        horizontal: BorderSide(color: AntTheme.border),
-                      ),
+          Container(
+            decoration: card
+                ? const BoxDecoration(
+                    color: AntTheme.white,
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                  )
+                : const BoxDecoration(
+                    color: AntTheme.white,
+                    border: Border.symmetric(
+                      horizontal: BorderSide(color: AntTheme.border),
                     ),
-              child: Column(
-                children: [
-                  for (final e in widget.items.asMap().entries)
-                    if (e.value.onClick == null)
-                      _buildItem(e.key, e.value)
-                    else
-                      Tapable(
-                        onTap: e.value.onClick,
-                        disabled: e.value.disabled,
-                        builder: (active) {
-                          return _buildItem(e.key, e.value, active);
-                        },
-                      ),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _buildItem(int index, AntListItem item, [bool? active]) {
-    return Opacity(
-      opacity: item.disabled ? .4 : 1,
-      child: Container(
-        padding: const EdgeInsets.only(left: 12),
-        color: active == true ? AntTheme.border : null,
-        child: Container(
-          decoration: index == 0
-              ? null
-              : const BoxDecoration(
-                  border: Border(
-                    top: BorderSide(color: AntTheme.border),
                   ),
-                ),
-          child: Container(
-            padding: const EdgeInsets.fromLTRB(0, 12, 12, 12),
-            child: Row(
-              children: [
-                if (item.prefix != null) ...[
-                  IconTheme(
-                    data: const IconThemeData(
-                      color: AntTheme.text,
-                      size: 17,
-                    ),
-                    child: item.prefix!,
-                  ),
-                  const SizedBox(width: 12)
-                ],
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (item.title != null)
-                        DefaultTextStyle(
-                          style: const TextStyle(
-                            fontSize: AntTheme.fontSize5,
-                            color: AntTheme.weak,
+            child: Column(children: [
+              for (final e in widget.children.asMap().entries) ...[
+                if (e.key != 0)
+                  Row(
+                    children: const [
+                      SizedBox(width: 12, height: 1),
+                      Expanded(
+                        child: SizedBox(
+                          height: 1,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(color: AntTheme.border),
                           ),
-                          child: item.title!,
                         ),
-                      item.child,
-                      if (item.description != null)
-                        DefaultTextStyle(
-                          style: const TextStyle(
-                            fontSize: AntTheme.fontSize5,
-                            color: AntTheme.weak,
-                          ),
-                          child: item.description!,
-                        )
+                      ),
                     ],
                   ),
-                ),
-                if (item.extra != null)
-                  Padding(
-                    padding: const EdgeInsets.only(left: 12),
-                    child: DefaultTextStyle(
-                      style: const TextStyle(
-                          fontSize: AntTheme.fontSize7, color: AntTheme.weak),
-                      child: item.extra!,
-                    ),
-                  ),
-                if (item.onClick != null && item.arrow != null)
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4),
-                    child: IconTheme(
-                      data: const IconThemeData(
-                        size: 19,
-                        color: AntTheme.light,
-                      ),
-                      child: item.arrow!,
-                    ),
-                  ),
-              ],
-            ),
-          ),
-        ),
+                e.value,
+              ]
+            ]),
+          )
+        ],
       ),
     );
   }
