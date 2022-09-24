@@ -1,8 +1,36 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+
+const _kColorPrimary = Color(0xff1677ff);
+const _kColorSuccess = Color(0xff00b578);
+const _kColorWarning = Color(0xffff8f1f);
+const _kColorDanger = Color(0xffff3141);
+const _kColorWhite = Color(0xffffffff);
+const _kColorText = Color(0xff333333);
+const _kColorTextSecondary = Color(0xff666666);
+const _kColorWeak = Color(0xff999999);
+const _kColorLight = Color(0xffcccccc);
+const _kColorBorder = Color(0xffeeeeee);
+const _kColorBox = Color(0xfff5f5f5);
+const _kColorBackground = Color(0xffffffff);
+
+const _kColorPrimaryDark = Color(0xff3086ff);
+const _kColorSuccessDark = Color(0xff34b368);
+const _kColorWarningDark = Color(0xffffa930);
+const _kColorDangerDark = Color(0xffff4a58);
+const _kColorWhiteDark = Color(0xffffffff);
+const _kColorTextDark = Color(0xffe6e6e6);
+const _kColorTextSecondaryDark = Color(0xffb3b3b3);
+const _kColorWeakDark = Color(0xff808080);
+const _kColorLightDark = Color(0xff4d4d4d);
+const _kColorBorderDark = Color(0xff2b2b2b);
+const _kColorBoxDark = Color(0xff0a0a0a);
+const _kColorBackgroundDark = Color(0xff1a1a1a);
 
 /// https://github.com/ant-design/ant-design-mobile/blob/v5.22.0/src/global/theme-default.less
 class AntThemeData {
   const AntThemeData({
+    required this.brightness,
     this.radiusS = 4,
     this.radiusM = 8,
     this.radiusL = 12,
@@ -30,6 +58,8 @@ class AntThemeData {
     this.colorBackground = const Color(0xffffffff),
     this.fontSizeMain = 13.0,
   });
+
+  final Brightness brightness;
 
   final double radiusS;
   final double radiusM;
@@ -74,7 +104,35 @@ class AntTheme extends InheritedWidget {
 
   static AntThemeData of(BuildContext context) {
     final theme = context.dependOnInheritedWidgetOfExactType<AntTheme>();
-    return theme?.data ?? const AntThemeData();
+    final brightness =
+        theme?.data.brightness ?? MediaQuery.of(context).platformBrightness;
+
+    return AntThemeData(
+      brightness: brightness,
+      colorPrimary:
+          brightness == Brightness.light ? _kColorPrimary : _kColorPrimaryDark,
+      colorSuccess:
+          brightness == Brightness.light ? _kColorSuccess : _kColorSuccessDark,
+      colorWarning:
+          brightness == Brightness.light ? _kColorWarning : _kColorWarningDark,
+      colorDanger:
+          brightness == Brightness.light ? _kColorDanger : _kColorDangerDark,
+      colorWhite:
+          brightness == Brightness.light ? _kColorWhite : _kColorWhiteDark,
+      colorText: brightness == Brightness.light ? _kColorText : _kColorTextDark,
+      colorTextSecondary: brightness == Brightness.light
+          ? _kColorTextSecondary
+          : _kColorTextSecondaryDark,
+      colorWeak: brightness == Brightness.light ? _kColorWeak : _kColorWeakDark,
+      colorLight:
+          brightness == Brightness.light ? _kColorLight : _kColorLightDark,
+      colorBorder:
+          brightness == Brightness.light ? _kColorBorder : _kColorBorderDark,
+      colorBox: brightness == Brightness.light ? _kColorBox : _kColorBoxDark,
+      colorBackground: brightness == Brightness.light
+          ? _kColorBackground
+          : _kColorBackgroundDark,
+    );
   }
 
   @override
