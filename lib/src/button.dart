@@ -26,7 +26,7 @@ class AntButton extends StatelessWidget {
     Key? key,
     required this.child,
     this.block = false,
-    this.color = AntTheme.white,
+    this.color,
     this.disabled = false,
     this.fill = AntButtonFill.solid,
     this.loading = false,
@@ -43,7 +43,7 @@ class AntButton extends StatelessWidget {
   final bool block;
 
   /// The color of the button.
-  final Color color;
+  final Color? color;
 
   /// Should the button be disabled.
   final bool disabled;
@@ -69,29 +69,32 @@ class AntButton extends StatelessWidget {
   /// The size of the button.
   final AntButtonSize size;
 
-  static const _size = {
-    AntButtonSize.mini: [3.0, AntTheme.fontSize5],
-    AntButtonSize.small: [3.0, AntTheme.fontSize7],
-    AntButtonSize.middle: [7.0, AntTheme.fontSize9],
-    AntButtonSize.large: [11.0, AntTheme.fontSize10],
-  };
-
   @override
   Widget build(BuildContext context) {
-    final backgroundColor =
-        fill == AntButtonFill.solid ? color : AntTheme.white;
+    final finalColor = color ?? AntTheme.of(context).colorWhite;
 
-    final borderColor = color == AntTheme.white
-        ? AntTheme.border
+    final backgroundColor = fill == AntButtonFill.solid
+        ? finalColor
+        : AntTheme.of(context).colorWhite;
+
+    final borderColor = finalColor == AntTheme.of(context).colorWhite
+        ? AntTheme.of(context).colorBorder
         : fill == AntButtonFill.outline
-            ? color
+            ? finalColor
             : backgroundColor;
 
-    final textColor = color == AntTheme.white
-        ? AntTheme.text
+    final textColor = finalColor == AntTheme.of(context).colorWhite
+        ? AntTheme.of(context).colorText
         : fill == AntButtonFill.solid
-            ? AntTheme.white
-            : color;
+            ? AntTheme.of(context).colorWhite
+            : finalColor;
+
+    final sizeMap = {
+      AntButtonSize.mini: [3.0, AntTheme.of(context).fontSize5],
+      AntButtonSize.small: [3.0, AntTheme.of(context).fontSize7],
+      AntButtonSize.middle: [7.0, AntTheme.of(context).fontSize9],
+      AntButtonSize.large: [11.0, AntTheme.of(context).fontSize10],
+    };
 
     return Semantics(
       button: true,
@@ -119,11 +122,11 @@ class AntButton extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: _size[size]![0], horizontal: 12),
+                        vertical: sizeMap[size]![0], horizontal: 12),
                     child: DefaultTextStyle(
                       style: TextStyle(
                         color: textColor,
-                        fontSize: _size[size]![1],
+                        fontSize: sizeMap[size]![1],
                       ),
                       child: IconTheme(
                         data: IconThemeData(color: textColor),

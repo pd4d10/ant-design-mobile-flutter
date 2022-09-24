@@ -58,16 +58,16 @@ class ActionSheetExample extends StatelessWidget {
                     text: Text('修改'),
                     disabled: true,
                   ),
-                  const AntActionSheetAction(
+                  AntActionSheetAction(
                     key: 'delete',
                     text: Text(
                       '删除',
                       style: TextStyle(
-                        color: AntTheme.danger,
+                        color: AntTheme.of(context).colorDanger,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    description: Text('删除后数据不可恢复'),
+                    description: const Text('删除后数据不可恢复'),
                   ),
                 ],
                 extra: const Text('请选择你要进行的操作'),

@@ -14,32 +14,32 @@ class ButtonExample extends StatelessWidget {
           title: '填充模式',
           child: Wrap(
             spacing: 8,
-            children: const [
+            children: [
               AntButton(
-                color: AntTheme.primary,
+                color: AntTheme.of(context).colorPrimary,
                 fill: AntButtonFill.solid,
-                child: Text('Solid'),
+                child: const Text('Solid'),
               ),
               AntButton(
-                color: AntTheme.primary,
+                color: AntTheme.of(context).colorPrimary,
                 fill: AntButtonFill.outline,
-                child: Text('Outline'),
+                child: const Text('Outline'),
               ),
               AntButton(
-                color: AntTheme.primary,
+                color: AntTheme.of(context).colorPrimary,
                 fill: AntButtonFill.none,
-                child: Text('None'),
+                child: const Text('None'),
               ),
             ],
           ),
         ),
-        const DemoBlock(
+        DemoBlock(
           title: '块级按钮',
           child: AntButton(
             block: true,
-            color: AntTheme.primary,
+            color: AntTheme.of(context).colorPrimary,
             size: AntButtonSize.large,
-            child: Text('Block Button'),
+            child: const Text('Block Button'),
           ),
         ),
         DemoBlock(
@@ -47,26 +47,26 @@ class ButtonExample extends StatelessWidget {
           child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             spacing: 8,
-            children: const [
+            children: [
               AntButton(
                 size: AntButtonSize.mini,
-                color: AntTheme.primary,
-                child: Text('Mini'),
+                color: AntTheme.of(context).colorPrimary,
+                child: const Text('Mini'),
               ),
               AntButton(
                 size: AntButtonSize.small,
-                color: AntTheme.primary,
-                child: Text('Small'),
+                color: AntTheme.of(context).colorPrimary,
+                child: const Text('Small'),
               ),
               AntButton(
                 size: AntButtonSize.middle,
-                color: AntTheme.primary,
-                child: Text('Middle'),
+                color: AntTheme.of(context).colorPrimary,
+                child: const Text('Middle'),
               ),
               AntButton(
                 size: AntButtonSize.large,
-                color: AntTheme.primary,
-                child: Text('Large'),
+                color: AntTheme.of(context).colorPrimary,
+                child: const Text('Large'),
               ),
             ],
           ),
@@ -76,12 +76,24 @@ class ButtonExample extends StatelessWidget {
           child: Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: const [
-              AntButton(child: Text('Default')),
-              AntButton(color: AntTheme.primary, child: Text('Primary')),
-              AntButton(color: AntTheme.success, child: Text('Success')),
-              AntButton(color: AntTheme.danger, child: Text('Danger')),
-              AntButton(color: AntTheme.warning, child: Text('Warning')),
+            children: [
+              const AntButton(child: Text('Default')),
+              AntButton(
+                color: AntTheme.of(context).colorPrimary,
+                child: const Text('Primary'),
+              ),
+              AntButton(
+                color: AntTheme.of(context).colorSuccess,
+                child: const Text('Success'),
+              ),
+              AntButton(
+                color: AntTheme.of(context).colorDanger,
+                child: const Text('Danger'),
+              ),
+              AntButton(
+                color: AntTheme.of(context).colorWarning,
+                child: const Text('Warning'),
+              ),
             ],
           ),
         ),
@@ -90,21 +102,21 @@ class ButtonExample extends StatelessWidget {
           child: Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: const [
+            children: [
               AntButton(
                 shape: AntButtonShape.defaults,
-                color: AntTheme.primary,
-                child: Text('Default Button'),
+                color: AntTheme.of(context).colorPrimary,
+                child: const Text('Default Button'),
               ),
               AntButton(
                 shape: AntButtonShape.rounded,
-                color: AntTheme.primary,
-                child: Text('Rounded Button'),
+                color: AntTheme.of(context).colorPrimary,
+                child: const Text('Rounded Button'),
               ),
               AntButton(
                 shape: AntButtonShape.rectangular,
-                color: AntTheme.primary,
-                child: Text('Rectangular Button'),
+                color: AntTheme.of(context).colorPrimary,
+                child: const Text('Rectangular Button'),
               ),
             ],
           ),
@@ -114,15 +126,15 @@ class ButtonExample extends StatelessWidget {
           child: Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: const [
-              AntButton(
+            children: [
+              const AntButton(
                 disabled: true,
                 child: Text('Disabled'),
               ),
               AntButton(
                 disabled: true,
-                color: AntTheme.primary,
-                child: Text('Disabled'),
+                color: AntTheme.of(context).colorPrimary,
+                child: const Text('Disabled'),
               ),
             ],
           ),

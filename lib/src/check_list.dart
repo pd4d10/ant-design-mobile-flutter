@@ -25,9 +25,9 @@ class AntCheckList extends StatelessWidget {
           AntListItem(
             extra: value.contains(item.value)
                 ? IconTheme(
-                    data: const IconThemeData(
-                      size: AntTheme.fontSize8,
-                      color: AntTheme.primary,
+                    data: IconThemeData(
+                      size: AntTheme.of(context).fontSize8,
+                      color: AntTheme.of(context).colorPrimary,
                     ),
                     child: activeIcon,
                   )

@@ -57,13 +57,13 @@ class _AntInfiniteScrollState extends State<AntInfiniteScroll> {
       child: Column(
         children: [
           widget.child,
-          const Padding(
-            padding: EdgeInsets.all(18),
+          Padding(
+            padding: const EdgeInsets.all(18),
             child: Text(
               '加载中',
               style: TextStyle(
-                fontSize: AntTheme.fontSizeMain,
-                color: AntTheme.weak,
+                fontSize: AntTheme.of(context).fontSizeMain,
+                color: AntTheme.of(context).colorWeak,
               ),
             ),
           ),

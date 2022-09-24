@@ -6,16 +6,14 @@ import 'package:flutter_lorem/flutter_lorem.dart';
 class PopupExample extends StatelessWidget {
   const PopupExample({super.key});
 
-  static final WidgetBuilder _lorem = (_) {
-    return Container(
-      color: AntTheme.background,
+  @override
+  Widget build(BuildContext context) {
+    final loremWidget = Container(
+      color: AntTheme.of(context).colorBackground,
       padding: const EdgeInsets.all(20),
       child: Text(lorem()),
     );
-  };
 
-  @override
-  Widget build(BuildContext context) {
     return Column(
       children: [
         DemoBlock(
@@ -28,7 +26,7 @@ class PopupExample extends StatelessWidget {
                 onClick: () {
                   AntPopup.show(
                     context: context,
-                    builder: _lorem,
+                    builder: (_) => loremWidget,
                     closeOnMaskClick: true,
                   );
                 },
@@ -39,7 +37,7 @@ class PopupExample extends StatelessWidget {
                 onClick: () {
                   AntPopup.show(
                     context: context,
-                    builder: _lorem,
+                    builder: (_) => loremWidget,
                     closeOnMaskClick: true,
                     position: AntPopupPosition.top,
                   );
@@ -50,7 +48,7 @@ class PopupExample extends StatelessWidget {
                 onClick: () {
                   AntPopup.show(
                     context: context,
-                    builder: _lorem,
+                    builder: (_) => loremWidget,
                     closeOnMaskClick: true,
                     position: AntPopupPosition.left,
                   );
@@ -61,7 +59,7 @@ class PopupExample extends StatelessWidget {
                 onClick: () {
                   AntPopup.show(
                     context: context,
-                    builder: _lorem,
+                    builder: (_) => loremWidget,
                     closeOnMaskClick: true,
                     position: AntPopupPosition.right,
                   );

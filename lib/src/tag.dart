@@ -34,9 +34,11 @@ class AntTag extends StatelessWidget {
       ),
       child: DefaultTextStyle(
         style: TextStyle(
-          fontSize: AntTheme.fontSize3,
+          fontSize: AntTheme.of(context).fontSize3,
           height: 1,
-          color: fill == AntTagFill.outline ? color : AntTheme.white,
+          color: fill == AntTagFill.outline
+              ? color
+              : AntTheme.of(context).colorWhite,
         ),
         child: child,
       ),

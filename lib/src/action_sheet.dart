@@ -2,13 +2,6 @@ import 'package:antd_mobile/antd_mobile.dart';
 import 'package:antd_mobile/src/_tapable.dart';
 import 'package:flutter/widgets.dart';
 
-const _itemDecoration = BoxDecoration(
-  color: AntTheme.background,
-  border: Border(
-    bottom: BorderSide(width: 1, color: AntTheme.border),
-  ),
-);
-
 class AntActionSheetAction<T> {
   const AntActionSheetAction({
     required this.key,
@@ -39,8 +32,14 @@ class AntActionSheetItem<T> extends StatelessWidget {
       },
       builder: (active) => Container(
         padding: const EdgeInsets.all(16),
-        decoration: _itemDecoration.copyWith(
-          color: active ? AntTheme.border : null,
+        decoration: BoxDecoration(
+          color: active
+              ? AntTheme.of(context).colorBorder
+              : AntTheme.of(context).colorBackground,
+          border: Border(
+            bottom:
+                BorderSide(width: 1, color: AntTheme.of(context).colorBorder),
+          ),
         ),
         child: Center(
           child: Opacity(
@@ -48,18 +47,18 @@ class AntActionSheetItem<T> extends StatelessWidget {
             child: Column(
               children: [
                 DefaultTextStyle(
-                  style: const TextStyle(
-                    fontSize: AntTheme.fontSize10,
-                    color: AntTheme.text,
+                  style: TextStyle(
+                    fontSize: AntTheme.of(context).fontSize10,
+                    color: AntTheme.of(context).colorText,
                   ),
                   child: action.text,
                 ),
                 if (action.description != null) ...[
                   const SizedBox(height: 4),
                   DefaultTextStyle(
-                    style: const TextStyle(
-                      fontSize: AntTheme.fontSize6,
-                      color: AntTheme.weak,
+                    style: TextStyle(
+                      fontSize: AntTheme.of(context).fontSize6,
+                      color: AntTheme.of(context).colorWeak,
                     ),
                     child: action.description!,
                   ),
@@ -102,12 +101,18 @@ class AntActionSheet extends StatelessWidget {
                     horizontal: 12,
                     vertical: 18,
                   ),
-                  decoration: _itemDecoration,
+                  decoration: BoxDecoration(
+                    color: AntTheme.of(context).colorBackground,
+                    border: Border(
+                      bottom: BorderSide(
+                          width: 1, color: AntTheme.of(context).colorBorder),
+                    ),
+                  ),
                   child: Center(
                     child: DefaultTextStyle(
-                      style: const TextStyle(
-                        color: AntTheme.weak,
-                        fontSize: AntTheme.fontSize7,
+                      style: TextStyle(
+                        color: AntTheme.of(context).colorWeak,
+                        fontSize: AntTheme.of(context).fontSize7,
                       ),
                       child: extra,
                     ),
@@ -118,7 +123,7 @@ class AntActionSheet extends StatelessWidget {
                   AntActionSheetItem(action: e.value),
               ],
               if (cancelText != null) ...[
-                Container(color: AntTheme.box, height: 8),
+                Container(color: AntTheme.of(context).colorBox, height: 8),
                 AntActionSheetItem(
                   action: AntActionSheetAction(text: cancelText, key: null),
                 ),

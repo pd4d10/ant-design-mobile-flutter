@@ -40,7 +40,7 @@ class AntTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AntTheme.white,
+      color: AntTheme.of(context).colorWhite,
       height: 49,
       child: Row(
         children: items.map((item) {
@@ -53,7 +53,9 @@ class AntTabBar extends StatelessWidget {
               },
               child: DefaultTextStyle(
                 style: TextStyle(
-                  color: active ? AntTheme.primary : AntTheme.text,
+                  color: active
+                      ? AntTheme.of(context).colorPrimary
+                      : AntTheme.of(context).colorText,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -64,8 +66,8 @@ class AntTabBar extends StatelessWidget {
                     if (item.title != null)
                       Text(
                         item.title!,
-                        style: const TextStyle(
-                          fontSize: AntTheme.fontSize2,
+                        style: TextStyle(
+                          fontSize: AntTheme.of(context).fontSize2,
                           height: 1.5,
                         ),
                       ),

@@ -17,30 +17,30 @@ class TagExample extends StatelessWidget {
           title: '线框标签',
           child: Wrap(
             spacing: 8,
-            children: const [
-              AntTag(
+            children: [
+              const AntTag(
                 fill: AntTagFill.outline,
                 child: Text('Default'),
               ),
               AntTag(
                 fill: AntTagFill.outline,
-                color: AntTheme.primary,
-                child: Text('Primary'),
+                color: AntTheme.of(context).colorPrimary,
+                child: const Text('Primary'),
               ),
               AntTag(
                 fill: AntTagFill.outline,
-                color: AntTheme.success,
-                child: Text('Success'),
+                color: AntTheme.of(context).colorSuccess,
+                child: const Text('Success'),
               ),
               AntTag(
                 fill: AntTagFill.outline,
-                color: AntTheme.warning,
-                child: Text('Warning'),
+                color: AntTheme.of(context).colorWarning,
+                child: const Text('Warning'),
               ),
               AntTag(
                 fill: AntTagFill.outline,
-                color: AntTheme.danger,
-                child: Text('Danger'),
+                color: AntTheme.of(context).colorDanger,
+                child: const Text('Danger'),
               ),
             ],
           ),
@@ -49,21 +49,33 @@ class TagExample extends StatelessWidget {
           title: '语义标签',
           child: Wrap(
             spacing: 8,
-            children: const [
-              AntTag(child: Text('Default')),
-              AntTag(color: AntTheme.primary, child: Text('Primary')),
-              AntTag(color: AntTheme.success, child: Text('Success')),
-              AntTag(color: AntTheme.warning, child: Text('Warning')),
-              AntTag(color: AntTheme.danger, child: Text('Danger')),
+            children: [
+              const AntTag(child: Text('Default')),
+              AntTag(
+                color: AntTheme.of(context).colorPrimary,
+                child: const Text('Primary'),
+              ),
+              AntTag(
+                color: AntTheme.of(context).colorSuccess,
+                child: const Text('Success'),
+              ),
+              AntTag(
+                color: AntTheme.of(context).colorWarning,
+                child: const Text('Warning'),
+              ),
+              AntTag(
+                color: AntTheme.of(context).colorDanger,
+                child: const Text('Danger'),
+              ),
             ],
           ),
         ),
-        const DemoBlock(
+        DemoBlock(
           title: '圆角标签',
           child: AntTag(
             round: true,
-            color: AntTheme.primary,
-            child: Text('Round'),
+            color: AntTheme.of(context).colorPrimary,
+            child: const Text('Round'),
           ),
         ),
         DemoBlock(

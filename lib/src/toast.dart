@@ -55,14 +55,15 @@ class AntToast {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8),
                       child: IconTheme(
-                        data: const IconThemeData(
-                            size: 36, color: AntTheme.white),
+                        data: IconThemeData(
+                            size: 36, color: AntTheme.of(context).colorWhite),
                         child: icon,
                       ),
                     ),
                   DefaultTextStyle(
-                    style: const TextStyle(
-                        color: AntTheme.white, fontSize: AntTheme.fontSize7),
+                    style: TextStyle(
+                        color: AntTheme.of(context).colorWhite,
+                        fontSize: AntTheme.of(context).fontSize7),
                     child: content,
                   ),
                 ],

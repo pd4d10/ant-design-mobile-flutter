@@ -35,36 +35,36 @@ class AntListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (onClick == null) {
-      return _buildItem();
+      return _buildItem(context);
     } else {
       return Tapable(
         onTap: onClick,
         disabled: disabled,
         builder: (active) {
-          return _buildItem(active);
+          return _buildItem(context, active);
         },
       );
     }
   }
 
-  Widget _buildItem([bool? active]) {
+  Widget _buildItem(BuildContext context, [bool? active]) {
     return Opacity(
       opacity: disabled ? .4 : 1,
       child: DefaultTextStyle(
-        style: const TextStyle(
-          fontSize: AntTheme.fontSize9,
-          color: AntTheme.text,
+        style: TextStyle(
+          fontSize: AntTheme.of(context).fontSize9,
+          color: AntTheme.of(context).colorText,
           height: 1.5,
         ),
         child: Container(
           padding: const EdgeInsets.all(12),
-          color: active == true ? AntTheme.border : null,
+          color: active == true ? AntTheme.of(context).colorBorder : null,
           child: Row(
             children: [
               if (prefix != null) ...[
                 IconTheme(
-                  data: const IconThemeData(
-                    color: AntTheme.text,
+                  data: IconThemeData(
+                    color: AntTheme.of(context).colorText,
                     size: 17,
                   ),
                   child: prefix!,
@@ -77,18 +77,18 @@ class AntListItem extends StatelessWidget {
                   children: [
                     if (title != null)
                       DefaultTextStyle(
-                        style: const TextStyle(
-                          fontSize: AntTheme.fontSize5,
-                          color: AntTheme.weak,
+                        style: TextStyle(
+                          fontSize: AntTheme.of(context).fontSize5,
+                          color: AntTheme.of(context).colorWeak,
                         ),
                         child: title!,
                       ),
                     child,
                     if (description != null)
                       DefaultTextStyle(
-                        style: const TextStyle(
-                          fontSize: AntTheme.fontSize5,
-                          color: AntTheme.weak,
+                        style: TextStyle(
+                          fontSize: AntTheme.of(context).fontSize5,
+                          color: AntTheme.of(context).colorWeak,
                         ),
                         child: description!,
                       )
@@ -99,8 +99,9 @@ class AntListItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 12),
                   child: DefaultTextStyle(
-                    style: const TextStyle(
-                        fontSize: AntTheme.fontSize7, color: AntTheme.weak),
+                    style: TextStyle(
+                        fontSize: AntTheme.of(context).fontSize7,
+                        color: AntTheme.of(context).colorWeak),
                     child: extra!,
                   ),
                 ),
@@ -108,9 +109,9 @@ class AntListItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 4),
                   child: IconTheme(
-                    data: const IconThemeData(
+                    data: IconThemeData(
                       size: 19,
-                      color: AntTheme.light,
+                      color: AntTheme.of(context).colorLight,
                     ),
                     child: arrow!,
                   ),
@@ -159,9 +160,9 @@ class _AntListState extends State<AntList> {
         children: [
           if (widget.header != null)
             DefaultTextStyle(
-              style: const TextStyle(
-                fontSize: AntTheme.fontSize7,
-                color: AntTheme.weak,
+              style: TextStyle(
+                fontSize: AntTheme.of(context).fontSize7,
+                color: AntTheme.of(context).colorWeak,
               ),
               child: Container(
                 padding: EdgeInsets.symmetric(
@@ -171,27 +172,29 @@ class _AntListState extends State<AntList> {
             ),
           Container(
             decoration: card
-                ? const BoxDecoration(
-                    color: AntTheme.white,
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                ? BoxDecoration(
+                    color: AntTheme.of(context).colorWhite,
+                    borderRadius: const BorderRadius.all(Radius.circular(8)),
                   )
-                : const BoxDecoration(
-                    color: AntTheme.white,
+                : BoxDecoration(
+                    color: AntTheme.of(context).colorWhite,
                     border: Border.symmetric(
-                      horizontal: BorderSide(color: AntTheme.border),
+                      horizontal:
+                          BorderSide(color: AntTheme.of(context).colorBorder),
                     ),
                   ),
             child: Column(children: [
               for (final e in widget.children.asMap().entries) ...[
                 if (e.key != 0)
                   Row(
-                    children: const [
-                      SizedBox(width: 12, height: 1),
+                    children: [
+                      const SizedBox(width: 12, height: 1),
                       Expanded(
                         child: SizedBox(
                           height: 1,
                           child: DecoratedBox(
-                            decoration: BoxDecoration(color: AntTheme.border),
+                            decoration: BoxDecoration(
+                                color: AntTheme.of(context).colorBorder),
                           ),
                         ),
                       ),
