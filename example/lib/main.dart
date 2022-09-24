@@ -11,10 +11,11 @@ import 'package:example/tab_bar.dart';
 import 'package:example/tag.dart';
 import 'package:example/toast.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 final _routes = [
@@ -94,6 +95,7 @@ final _routes = [
           return CupertinoPageScaffold(
             navigationBar: CupertinoNavigationBar(
               middle: Text(e.name!),
+              trailing: const ToggleButton(),
             ),
             child: SafeArea(child: child),
           );
@@ -110,45 +112,65 @@ final _router = GoRouter(routes: [
   ..._routes
 ]);
 
-class MyApp extends StatelessWidget {
+class ThemeModel extends ChangeNotifier {
+  var brightness = Brightness.light;
+
+  void toggleBrightness() {
+    brightness =
+        brightness == Brightness.light ? Brightness.dark : Brightness.light;
+    notifyListeners();
+  }
+}
+
+final themeProvider = StateProvider((_) => Brightness.light);
+
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return CupertinoApp.router(
-      title: 'Flutter Demo',
-      routeInformationProvider: _router.routeInformationProvider,
-      routeInformationParser: _router.routeInformationParser,
-      routerDelegate: _router.routerDelegate,
+  Widget build(BuildContext context, ref) {
+    return AntTheme(
+      data: AntThemeData(brightness: ref.watch(themeProvider)),
+      child: CupertinoApp.router(
+        title: 'Flutter Demo',
+        routeInformationProvider: _router.routeInformationProvider,
+        routeInformationParser: _router.routeInformationParser,
+        routerDelegate: _router.routerDelegate,
+      ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class ToggleButton extends ConsumerWidget {
+  const ToggleButton({super.key});
+
+  @override
+  Widget build(BuildContext context, ref) {
+    return CupertinoButton(
+      child: const Icon(CupertinoIcons.brightness),
+      onPressed: () {
+        ref.read(themeProvider.notifier).update(
+              (state) => state == Brightness.light
+                  ? Brightness.dark
+                  : Brightness.light,
+            );
+      },
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text(widget.title),
+        middle: Text(title),
+        trailing: const ToggleButton(),
       ),
       child: SafeArea(
         child: SingleChildScrollView(

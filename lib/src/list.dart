@@ -173,11 +173,11 @@ class _AntListState extends State<AntList> {
           Container(
             decoration: card
                 ? BoxDecoration(
-                    color: AntTheme.of(context).colorWhite,
+                    color: AntTheme.of(context).colorBackground,
                     borderRadius: const BorderRadius.all(Radius.circular(8)),
                   )
                 : BoxDecoration(
-                    color: AntTheme.of(context).colorWhite,
+                    color: AntTheme.of(context).colorBackground,
                     border: Border.symmetric(
                       horizontal:
                           BorderSide(color: AntTheme.of(context).colorBorder),

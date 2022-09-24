@@ -33,6 +33,8 @@ dependencies:
     sdk: flutter
   go_router:
   flutter_lorem:
+  cupertino_icons:
+  flutter_riverpod:
   antd_mobile:
     path: ..
 

@@ -30,7 +30,7 @@ const _kColorBackgroundDark = Color(0xff1a1a1a);
 /// https://github.com/ant-design/ant-design-mobile/blob/v5.22.0/src/global/theme-default.less
 class AntThemeData {
   const AntThemeData({
-    required this.brightness,
+    this.brightness,
     this.radiusS = 4,
     this.radiusM = 8,
     this.radiusL = 12,
@@ -59,7 +59,7 @@ class AntThemeData {
     this.fontSizeMain = 13.0,
   });
 
-  final Brightness brightness;
+  final Brightness? brightness;
 
   final double radiusS;
   final double radiusM;

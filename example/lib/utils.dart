@@ -1,3 +1,4 @@
+import 'package:antd_mobile/antd_mobile.dart';
 import 'package:flutter/widgets.dart';
 
 class DemoBlock extends StatelessWidget {
@@ -18,13 +19,18 @@ class DemoBlock extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.fromLTRB(12, 12, 12, 8),
+          color: AntTheme.of(context).colorBackground,
           alignment: Alignment.centerLeft,
           child: Text(
             title,
-            style: const TextStyle(fontSize: 14, color: Color(0xff697b8c)),
+            style: TextStyle(
+              fontSize: 14,
+              color: AntTheme.of(context).colorText,
+            ),
           ),
         ),
         Container(
+          color: AntTheme.of(context).colorBackground,
           padding: EdgeInsets.symmetric(horizontal: padding),
           alignment: Alignment.centerLeft,
           child: child,
