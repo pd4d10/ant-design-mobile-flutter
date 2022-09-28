@@ -130,9 +130,17 @@ class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, ref) {
+    final brightness = ref.watch(themeProvider);
+
     return AntTheme(
-      data: AntThemeData(brightness: ref.watch(themeProvider)),
+      data: AntThemeData(brightness: brightness),
       child: CupertinoApp.router(
+        theme: CupertinoThemeData(
+          brightness: brightness,
+          scaffoldBackgroundColor: brightness == Brightness.dark
+              ? const Color(0x00ff2629)
+              : const Color(0xfffafbfc),
+        ),
         title: 'Flutter Demo',
         routeInformationProvider: _router.routeInformationProvider,
         routeInformationParser: _router.routeInformationParser,

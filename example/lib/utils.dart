@@ -19,7 +19,6 @@ class DemoBlock extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.fromLTRB(12, 12, 12, 8),
-          color: AntTheme.of(context).colorBackground,
           alignment: Alignment.centerLeft,
           child: Text(
             title,

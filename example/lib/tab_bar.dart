@@ -8,25 +8,25 @@ class TabBarExample extends StatefulWidget {
   static const items = [
     AntTabBarItem(
       key: 'home',
-      title: 'Home',
+      title: '首页',
       icon: Icon(AntIcons.appOutline),
     ),
     AntTabBarItem(
       key: 'todo',
-      title: 'Todo',
+      title: '待办',
       icon: Icon(AntIcons.unorderedListOutline),
       badge: Text('5'),
     ),
     AntTabBarItem(
       key: 'message',
-      title: 'Message',
+      title: '消息',
       icon: Icon(AntIcons.messageOutline),
       activeIcon: Icon(AntIcons.messageFill),
       badge: Text('99+'),
     ),
     AntTabBarItem(
       key: 'personalCenter',
-      title: 'Me',
+      title: '我的',
       icon: Icon(AntIcons.userOutline),
     ),
   ];
@@ -49,7 +49,7 @@ class _TabBarExampleState extends State<TabBarExample> {
     return Column(
       children: [
         DemoBlock(
-          title: 'Basic',
+          title: '基础用法',
           padding: 0,
           child: AntTabBar(
             activeKey: _active,
@@ -58,7 +58,7 @@ class _TabBarExampleState extends State<TabBarExample> {
           ),
         ),
         DemoBlock(
-          title: 'Icon only',
+          title: '仅图标',
           padding: 0,
           child: AntTabBar(
             activeKey: _active,
@@ -67,15 +67,14 @@ class _TabBarExampleState extends State<TabBarExample> {
                 AntTabBarItem(
                   key: e.key,
                   icon: e.icon,
-                  activeIcon: e.icon,
-                  badge: e.badge,
+                  activeIcon: e.activeIcon,
                 )
             ],
             onChange: _handleChange,
           ),
         ),
         DemoBlock(
-          title: 'Title only',
+          title: '仅标题',
           padding: 0,
           child: AntTabBar(
             activeKey: _active,
@@ -84,7 +83,6 @@ class _TabBarExampleState extends State<TabBarExample> {
                 AntTabBarItem(
                   key: e.key,
                   title: e.title,
-                  badge: e.badge,
                 )
             ],
             onChange: _handleChange,

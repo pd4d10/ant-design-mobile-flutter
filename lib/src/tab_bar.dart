@@ -45,34 +45,37 @@ class AntTabBar extends StatelessWidget {
       child: Row(
         children: items.map((item) {
           final active = item.key == activeKey;
+          final color = active
+              ? AntTheme.of(context).colorPrimary
+              : AntTheme.of(context).colorTextSecondary;
 
           return Expanded(
             child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: () {
                 onChange?.call(item.key);
               },
-              child: DefaultTextStyle(
-                style: TextStyle(
-                  color: active
-                      ? AntTheme.of(context).colorPrimary
-                      : AntTheme.of(context).colorText,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (item.icon != null && !active) item.icon!,
-                    if (item.activeIcon != null && active) item.activeIcon!,
-                    if (item.title != null) const SizedBox(height: 2),
-                    if (item.title != null)
-                      Text(
-                        item.title!,
-                        style: TextStyle(
-                          fontSize: AntTheme.of(context).fontSize2,
-                          height: 1.5,
+              child: IconTheme(
+                data: IconThemeData(color: color, size: 24),
+                child: DefaultTextStyle(
+                  style: TextStyle(color: color),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (item.icon != null && !active) item.icon!,
+                      if (item.activeIcon != null && active) item.activeIcon!,
+                      if (item.title != null) const SizedBox(height: 2),
+                      if (item.title != null)
+                        Text(
+                          item.title!,
+                          style: TextStyle(
+                            fontSize: AntTheme.of(context).fontSize2,
+                            height: 1.5,
+                          ),
                         ),
-                      ),
-                    // if (item.badge != null) item.badge!,
-                  ],
+                      // if (item.badge != null) item.badge!,
+                    ],
+                  ),
                 ),
               ),
             ),
