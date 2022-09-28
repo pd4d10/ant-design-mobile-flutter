@@ -44,10 +44,15 @@ class AntTabBar extends StatelessWidget {
       height: 49,
       child: Row(
         children: items.map((item) {
+          final theme = AntTheme.of(context);
           final active = item.key == activeKey;
-          final color = active
-              ? AntTheme.of(context).colorPrimary
-              : AntTheme.of(context).colorTextSecondary;
+          final color = active ? theme.colorPrimary : theme.colorTextSecondary;
+
+          final icon = (item.activeIcon != null && active)
+              ? item.activeIcon!
+              : (item.icon != null && !active)
+                  ? item.icon!
+                  : null;
 
           return Expanded(
             child: GestureDetector(
@@ -55,26 +60,52 @@ class AntTabBar extends StatelessWidget {
               onTap: () {
                 onChange?.call(item.key);
               },
-              child: IconTheme(
-                data: IconThemeData(color: color, size: 24),
-                child: DefaultTextStyle(
-                  style: TextStyle(color: color),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (item.icon != null && !active) item.icon!,
-                      if (item.activeIcon != null && active) item.activeIcon!,
-                      if (item.title != null) const SizedBox(height: 2),
-                      if (item.title != null)
-                        Text(
-                          item.title!,
-                          style: TextStyle(
-                            fontSize: AntTheme.of(context).fontSize2,
-                            height: 1.5,
+              child: Center(
+                child: IconTheme(
+                  data: IconThemeData(color: color, size: 24),
+                  child: DefaultTextStyle(
+                    style: TextStyle(color: color),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (icon != null)
+                          Stack(
+                            children: [
+                              icon,
+                              if (item.badge != null)
+                                Positioned(
+                                  // right: 0, // TODO:
+                                  // top: -6,
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 4, vertical: 1),
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xffff411c), // TODO:
+                                      borderRadius: BorderRadius.circular(100),
+                                    ),
+                                    child: DefaultTextStyle(
+                                      style: TextStyle(
+                                        color: theme.colorWhite,
+                                        fontSize: theme.fontSize1,
+                                        // height: 12,
+                                      ),
+                                      child: item.badge!,
+                                    ),
+                                  ),
+                                ),
+                            ],
                           ),
-                        ),
-                      // if (item.badge != null) item.badge!,
-                    ],
+                        if (item.title != null) const SizedBox(height: 2),
+                        if (item.title != null)
+                          Text(
+                            item.title!,
+                            style: TextStyle(
+                              fontSize: theme.fontSize2,
+                              height: 1.5,
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
                 ),
               ),

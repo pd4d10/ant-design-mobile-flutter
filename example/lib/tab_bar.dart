@@ -53,6 +53,23 @@ class _TabBarExampleState extends State<TabBarExample> {
           padding: 0,
           child: AntTabBar(
             activeKey: _active,
+            items: [
+              for (final e in TabBarExample.items)
+                AntTabBarItem(
+                  key: e.key,
+                  title: e.title,
+                  icon: e.icon,
+                  activeIcon: e.activeIcon,
+                )
+            ],
+            onChange: _handleChange,
+          ),
+        ),
+        DemoBlock(
+          title: '徽标',
+          padding: 0,
+          child: AntTabBar(
+            activeKey: _active,
             items: TabBarExample.items,
             onChange: _handleChange,
           ),
