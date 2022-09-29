@@ -2,6 +2,7 @@ import 'package:antd_mobile/antd_mobile.dart';
 import 'package:example/action_sheet.dart';
 import 'package:example/button.dart';
 import 'package:example/check_list.dart';
+import 'package:example/collapse.dart';
 import 'package:example/icons.dart';
 import 'package:example/infinite_scroll.dart';
 import 'package:example/list.dart';
@@ -33,6 +34,11 @@ final _routes = [
     name: 'CheckList',
     path: '/check-list',
     builder: (context, state) => const CheckListExample(),
+  ),
+  GoRoute(
+    name: 'Collapse',
+    path: '/collapse',
+    builder: (context, state) => const CollapseExample(),
   ),
   GoRoute(
     name: 'Icons',
