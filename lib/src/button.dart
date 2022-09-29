@@ -23,7 +23,7 @@ enum AntButtonSize {
 
 class AntButton extends StatelessWidget {
   const AntButton({
-    Key? key,
+    super.key,
     required this.child,
     this.block = false,
     this.color,
@@ -35,7 +35,7 @@ class AntButton extends StatelessWidget {
     this.onClick,
     this.shape = AntButtonShape.defaults,
     this.size = AntButtonSize.middle,
-  }) : super(key: key);
+  });
 
   final Widget child;
 

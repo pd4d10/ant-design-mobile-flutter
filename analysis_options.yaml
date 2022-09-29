@@ -2,3 +2,14 @@ include: package:flutter_lints/flutter.yaml
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
+linter:
+  rules:
+    prefer_single_quotes: true
+    always_use_package_imports: true
+    sort_constructors_first: true
+    sort_unnamed_constructors_first: true
+    avoid_types_on_closure_parameters: true
+    omit_local_variable_types: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    use_super_parameters: true

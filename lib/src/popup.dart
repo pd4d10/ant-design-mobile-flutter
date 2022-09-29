@@ -37,8 +37,8 @@ class AntPopupRoute<T> extends RawDialogRoute<T> {
     super.transitionDuration = const Duration(milliseconds: 250),
     super.transitionBuilder = _buildTransitions,
   }) : super(
-          pageBuilder: (BuildContext context, Animation<double> animation,
-              Animation<double> secondaryAnimation) {
+          pageBuilder: (context, animation,
+              secondaryAnimation) {
             return builder(context);
           },
           barrierLabel: 'Dismiss',
