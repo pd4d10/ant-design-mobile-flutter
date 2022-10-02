@@ -2,6 +2,31 @@ import 'package:antd_mobile/antd_mobile.dart';
 import 'package:antd_mobile/src/_tapable.dart';
 import 'package:flutter/widgets.dart';
 
+// TODO: private
+class AntListBorder extends StatelessWidget {
+  const AntListBorder({this.hasLeftPadding = false});
+  final bool hasLeftPadding;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = AntTheme.of(context);
+
+    return Row(
+      children: [
+        SizedBox(width: hasLeftPadding ? 12 : 0, height: 1),
+        Expanded(
+          child: SizedBox(
+            height: 1,
+            child: DecoratedBox(
+              decoration: BoxDecoration(color: theme.colorBorder),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 class AntListItem extends StatelessWidget {
   const AntListItem({
     super.key,
@@ -184,27 +209,45 @@ class _AntListState extends State<AntList> {
                       horizontal: BorderSide(color: theme.colorBorder),
                     ),
                   ),
-            child: Column(children: [
-              for (final e in widget.children.asMap().entries) ...[
-                if (e.key != 0)
-                  Row(
-                    children: [
-                      const SizedBox(width: 12, height: 1),
-                      Expanded(
-                        child: SizedBox(
-                          height: 1,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(color: theme.colorBorder),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                e.value,
-              ]
-            ]),
+            child: Column(
+              children: [
+                for (final e in widget.children.asMap().entries) ...[
+                  if (e.key != 0) const AntListBorder(hasLeftPadding: true),
+                  e.value,
+                ]
+              ],
+            ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class AntSliverList extends StatelessWidget {
+  const AntSliverList({
+    super.key,
+    required this.count,
+    required this.itemBuilder,
+  });
+
+  final int count;
+  final Widget Function(BuildContext context, int index) itemBuilder;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          if (index % 2 == 0) {
+            return AntListBorder(
+              hasLeftPadding: index > 0 && index < 2 * count,
+            );
+          } else {
+            return itemBuilder(context, index ~/ 2);
+          }
+        },
+        childCount: 2 * count + 1,
       ),
     );
   }
