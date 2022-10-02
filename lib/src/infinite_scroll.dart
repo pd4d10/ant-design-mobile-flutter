@@ -52,6 +52,8 @@ class _AntInfiniteScrollState extends State<AntInfiniteScroll> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = AntTheme.of(context);
+
     return SingleChildScrollView(
       controller: _controller,
       child: Column(
@@ -62,8 +64,8 @@ class _AntInfiniteScrollState extends State<AntInfiniteScroll> {
             child: Text(
               '加载中',
               style: TextStyle(
-                fontSize: AntTheme.of(context).fontSizeMain,
-                color: AntTheme.of(context).colorWeak,
+                fontSize: theme.fontSizeMain,
+                color: theme.colorWeak,
               ),
             ),
           ),

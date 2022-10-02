@@ -71,6 +71,7 @@ class AntButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = AntTheme.of(context);
     const transparent = Color(0x00000000);
     final finalColor = color ?? transparent;
 
@@ -78,22 +79,22 @@ class AntButton extends StatelessWidget {
         fill == AntButtonFill.solid ? finalColor : transparent;
 
     final borderColor = color == null
-        ? AntTheme.of(context).colorBorder
+        ? theme.colorBorder
         : fill == AntButtonFill.outline
             ? finalColor
             : backgroundColor;
 
     final textColor = color == null
-        ? AntTheme.of(context).colorText
+        ? theme.colorText
         : fill == AntButtonFill.solid
-            ? AntTheme.of(context).colorWhite
+            ? theme.colorWhite
             : finalColor;
 
     final sizeMap = {
-      AntButtonSize.mini: [3.0, AntTheme.of(context).fontSize5],
-      AntButtonSize.small: [3.0, AntTheme.of(context).fontSize7],
-      AntButtonSize.middle: [7.0, AntTheme.of(context).fontSize9],
-      AntButtonSize.large: [11.0, AntTheme.of(context).fontSize10],
+      AntButtonSize.mini: [3.0, theme.fontSize5],
+      AntButtonSize.small: [3.0, theme.fontSize7],
+      AntButtonSize.middle: [7.0, theme.fontSize9],
+      AntButtonSize.large: [11.0, theme.fontSize10],
     };
 
     return Semantics(

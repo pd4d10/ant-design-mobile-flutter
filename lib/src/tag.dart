@@ -25,6 +25,7 @@ class AntTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = AntTheme.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
       decoration: BoxDecoration(
@@ -34,11 +35,9 @@ class AntTag extends StatelessWidget {
       ),
       child: DefaultTextStyle(
         style: TextStyle(
-          fontSize: AntTheme.of(context).fontSize3,
+          fontSize: theme.fontSize3,
           height: 1,
-          color: fill == AntTagFill.outline
-              ? color
-              : AntTheme.of(context).colorWhite,
+          color: fill == AntTagFill.outline ? color : theme.colorWhite,
         ),
         child: child,
       ),

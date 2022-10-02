@@ -19,6 +19,8 @@ class AntCheckList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = AntTheme.of(context);
+
     return AntList(
       children: [
         for (final item in items)
@@ -26,8 +28,8 @@ class AntCheckList extends StatelessWidget {
             extra: value.contains(item.value)
                 ? IconTheme(
                     data: IconThemeData(
-                      size: AntTheme.of(context).fontSize8,
-                      color: AntTheme.of(context).colorPrimary,
+                      size: theme.fontSize8,
+                      color: theme.colorPrimary,
                     ),
                     child: activeIcon,
                   )

@@ -25,6 +25,8 @@ class AntActionSheetItem<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = AntTheme.of(context);
+
     return Tapable(
       onTap: () {
         action.onClick?.call();
@@ -33,12 +35,9 @@ class AntActionSheetItem<T> extends StatelessWidget {
       builder: (active) => Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: active
-              ? AntTheme.of(context).colorBorder
-              : AntTheme.of(context).colorBackground,
+          color: active ? theme.colorBorder : theme.colorBackground,
           border: Border(
-            bottom:
-                BorderSide(width: 1, color: AntTheme.of(context).colorBorder),
+            bottom: BorderSide(width: 1, color: theme.colorBorder),
           ),
         ),
         child: Center(
@@ -48,8 +47,8 @@ class AntActionSheetItem<T> extends StatelessWidget {
               children: [
                 DefaultTextStyle(
                   style: TextStyle(
-                    fontSize: AntTheme.of(context).fontSize10,
-                    color: AntTheme.of(context).colorText,
+                    fontSize: theme.fontSize10,
+                    color: theme.colorText,
                   ),
                   child: action.text,
                 ),
@@ -57,8 +56,8 @@ class AntActionSheetItem<T> extends StatelessWidget {
                   const SizedBox(height: 4),
                   DefaultTextStyle(
                     style: TextStyle(
-                      fontSize: AntTheme.of(context).fontSize6,
-                      color: AntTheme.of(context).colorWeak,
+                      fontSize: theme.fontSize6,
+                      color: theme.colorWeak,
                     ),
                     child: action.description!,
                   ),
@@ -86,6 +85,8 @@ class AntActionSheet extends StatelessWidget {
       context: context,
       closeOnMaskClick: closeOnMaskClick,
       builder: (context) {
+        final theme = AntTheme.of(context);
+
         return ClipRRect(
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(8),
@@ -102,17 +103,16 @@ class AntActionSheet extends StatelessWidget {
                     vertical: 18,
                   ),
                   decoration: BoxDecoration(
-                    color: AntTheme.of(context).colorBackground,
+                    color: theme.colorBackground,
                     border: Border(
-                      bottom: BorderSide(
-                          width: 1, color: AntTheme.of(context).colorBorder),
+                      bottom: BorderSide(width: 1, color: theme.colorBorder),
                     ),
                   ),
                   child: Center(
                     child: DefaultTextStyle(
                       style: TextStyle(
-                        color: AntTheme.of(context).colorWeak,
-                        fontSize: AntTheme.of(context).fontSize7,
+                        color: theme.colorWeak,
+                        fontSize: theme.fontSize7,
                       ),
                       child: extra,
                     ),
@@ -123,7 +123,7 @@ class AntActionSheet extends StatelessWidget {
                   AntActionSheetItem(action: e.value),
               ],
               if (cancelText != null) ...[
-                Container(color: AntTheme.of(context).colorBox, height: 8),
+                Container(color: theme.colorBox, height: 8),
                 AntActionSheetItem(
                   action: AntActionSheetAction(text: cancelText, key: null),
                 ),

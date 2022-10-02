@@ -20,10 +20,12 @@ class AntNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = AntTheme.of(context);
+
     return Container(
       height: 45,
       decoration: BoxDecoration(
-        color: AntTheme.of(context).colorWhite,
+        color: theme.colorWhite,
       ),
       child: Row(
         children: [
@@ -50,8 +52,8 @@ class AntNavBar extends StatelessWidget {
             flex: 0,
             child: DefaultTextStyle(
               style: TextStyle(
-                fontSize: AntTheme.of(context).fontSize7,
-                color: AntTheme.of(context).colorText,
+                fontSize: theme.fontSize7,
+                color: theme.colorText,
               ),
               child: left ?? const SizedBox.shrink(),
             ),
@@ -59,8 +61,8 @@ class AntNavBar extends StatelessWidget {
           Expanded(
             child: DefaultTextStyle(
               style: TextStyle(
-                fontSize: AntTheme.of(context).fontSize10,
-                color: AntTheme.of(context).colorText,
+                fontSize: theme.fontSize10,
+                color: theme.colorText,
               ),
               child: Center(child: title ?? const SizedBox.shrink()),
             ),
@@ -69,8 +71,8 @@ class AntNavBar extends StatelessWidget {
             flex: 0,
             child: DefaultTextStyle(
               style: TextStyle(
-                fontSize: AntTheme.of(context).fontSize7,
-                color: AntTheme.of(context).colorText,
+                fontSize: theme.fontSize7,
+                color: theme.colorText,
               ),
               child: right ?? const SizedBox.shrink(),
             ),

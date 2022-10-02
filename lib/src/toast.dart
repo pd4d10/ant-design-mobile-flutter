@@ -21,6 +21,8 @@ class AntToast {
     Duration duration = const Duration(seconds: 2),
     bool maskClickable = true,
   }) async {
+    final theme = AntTheme.of(context);
+
     _entry?.remove();
     _timer?.cancel();
 
@@ -55,15 +57,13 @@ class AntToast {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8),
                       child: IconTheme(
-                        data: IconThemeData(
-                            size: 36, color: AntTheme.of(context).colorWhite),
+                        data: IconThemeData(size: 36, color: theme.colorWhite),
                         child: icon,
                       ),
                     ),
                   DefaultTextStyle(
                     style: TextStyle(
-                        color: AntTheme.of(context).colorWhite,
-                        fontSize: AntTheme.of(context).fontSize7),
+                        color: theme.colorWhite, fontSize: theme.fontSize7),
                     child: content,
                   ),
                 ],

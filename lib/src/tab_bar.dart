@@ -39,12 +39,12 @@ class AntTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = AntTheme.of(context);
     return Container(
-      color: AntTheme.of(context).colorWhite,
+      color: theme.colorWhite,
       height: 49,
       child: Row(
         children: items.map((item) {
-          final theme = AntTheme.of(context);
           final active = item.key == activeKey;
           final color = active ? theme.colorPrimary : theme.colorTextSecondary;
 
