@@ -208,25 +208,24 @@ class _AntListState extends State<AntList> {
                 child: widget.header!,
               ),
             ),
-          Container(
-            decoration: card
-                ? BoxDecoration(
-                    color: theme.colorBackground,
-                    borderRadius: const BorderRadius.all(Radius.circular(8)),
-                  )
-                : BoxDecoration(
-                    color: theme.colorBackground,
-                    border: Border.symmetric(
-                      horizontal: BorderSide(color: theme.colorBorder),
-                    ),
-                  ),
-            child: Column(
-              children: [
-                for (final e in widget.children.asMap().entries) ...[
-                  if (e.key != 0) const AntListBorder(hasLeftPadding: true),
-                  e.value,
-                ]
-              ],
+          ClipRRect(
+            borderRadius: BorderRadius.circular(card ? 8 : 0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: theme.colorBackground,
+                border: card
+                    ? null
+                    : Border.symmetric(
+                        horizontal: BorderSide(color: theme.colorBorder)),
+              ),
+              child: Column(
+                children: [
+                  for (final e in widget.children.asMap().entries) ...[
+                    if (e.key != 0) const AntListBorder(hasLeftPadding: true),
+                    e.value,
+                  ]
+                ],
+              ),
             ),
           )
         ],
