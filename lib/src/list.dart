@@ -4,7 +4,11 @@ import 'package:flutter/widgets.dart';
 
 // TODO: private
 class AntListBorder extends StatelessWidget {
-  const AntListBorder({this.hasLeftPadding = false});
+  const AntListBorder({
+    super.key,
+    this.hasLeftPadding = false,
+  });
+
   final bool hasLeftPadding;
 
   @override
@@ -13,7 +17,14 @@ class AntListBorder extends StatelessWidget {
 
     return Row(
       children: [
-        SizedBox(width: hasLeftPadding ? 12 : 0, height: 1),
+        if (hasLeftPadding)
+          SizedBox(
+            width: 12,
+            height: 1,
+            child: DecoratedBox(
+              decoration: BoxDecoration(color: theme.colorBackground),
+            ),
+          ),
         Expanded(
           child: SizedBox(
             height: 1,
@@ -85,7 +96,7 @@ class AntListItem extends StatelessWidget {
         ),
         child: Container(
           padding: const EdgeInsets.all(12),
-          color: active == true ? theme.colorBorder : null,
+          color: active == true ? theme.colorBorder : theme.colorBackground,
           child: Row(
             children: [
               if (prefix != null) ...[
