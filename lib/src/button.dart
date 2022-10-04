@@ -99,52 +99,55 @@ class AntButton extends StatelessWidget {
 
     return Semantics(
       button: true,
-      child: Tapable(
-        onTap: onClick,
-        disabled: disabled,
-        builder: (active) {
-          return Opacity(
-            opacity: disabled ? .4 : 1,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(
-                    shape == AntButtonShape.defaults
-                        ? 4
-                        : shape == AntButtonShape.rectangular
-                            ? 0
-                            : 100, // TODO:
+      child: SizedBox(
+        width: block ? double.infinity : null,
+        child: Tapable(
+          onTap: onClick,
+          disabled: disabled,
+          builder: (active) {
+            return Opacity(
+              opacity: disabled ? .4 : 1,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(
+                      shape == AntButtonShape.defaults
+                          ? 4
+                          : shape == AntButtonShape.rectangular
+                              ? 0
+                              : 100, // TODO:
+                    ),
                   ),
+                  border: Border.all(color: borderColor),
+                  color: backgroundColor,
                 ),
-                border: Border.all(color: borderColor),
-                color: backgroundColor,
-              ),
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        vertical: sizeMap[size]![0], horizontal: 12),
-                    child: DefaultTextStyle(
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: sizeMap[size]![1],
-                      ),
-                      child: IconTheme(
-                        data: IconThemeData(color: textColor),
-                        child: child,
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: sizeMap[size]![0], horizontal: 12),
+                      child: DefaultTextStyle(
+                        style: TextStyle(
+                          color: textColor,
+                          fontSize: sizeMap[size]![1],
+                        ),
+                        child: IconTheme(
+                          data: IconThemeData(color: textColor),
+                          child: block ? Center(child: child) : child,
+                        ),
                       ),
                     ),
-                  ),
-                  Positioned.fill(
-                    child: Container(
-                      color: Color.fromRGBO(0, 0, 0, active ? .08 : 0),
-                    ),
-                  )
-                ],
+                    Positioned.fill(
+                      child: Container(
+                        color: Color.fromRGBO(0, 0, 0, active ? .08 : 0),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
