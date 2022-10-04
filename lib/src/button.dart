@@ -72,11 +72,10 @@ class AntButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = AntTheme.of(context);
-    const transparent = Color(0x00000000);
-    final finalColor = color ?? transparent;
+    final finalColor = color ?? theme.colorBackground;
 
     final backgroundColor =
-        fill == AntButtonFill.solid ? finalColor : transparent;
+        fill == AntButtonFill.solid ? finalColor : const Color(0x00000000);
 
     final borderColor = color == null
         ? theme.colorBorder
