@@ -29,8 +29,8 @@ class DemoBlock extends StatelessWidget {
           ),
         ),
         Container(
-          color: AntTheme.of(context).colorBackground,
-          padding: EdgeInsets.symmetric(horizontal: padding),
+          color: AntTheme.of(context).colorWeak,
+          padding: EdgeInsets.all(padding),
           alignment: Alignment.centerLeft,
           child: child,
         ),

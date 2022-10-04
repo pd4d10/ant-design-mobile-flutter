@@ -89,13 +89,7 @@ final _routes = [
           var child = e.builder(context, state);
 
           if (e.name != 'InfiniteScroll') {
-            child = SingleChildScrollView(
-              child: Container(
-                decoration: const BoxDecoration(color: Color(0xfffafbfc)),
-                // padding: const EdgeInsets.all(8.0),
-                child: child,
-              ),
-            );
+            child = SingleChildScrollView(child: child);
           }
 
           return CupertinoPageScaffold(
@@ -140,17 +134,19 @@ class MyApp extends ConsumerWidget {
 
     return AntTheme(
       data: AntThemeData(brightness: brightness),
-      child: CupertinoApp.router(
-        theme: CupertinoThemeData(
-          brightness: brightness,
-          scaffoldBackgroundColor: brightness == Brightness.dark
-              ? const Color(0x00ff2629)
-              : const Color(0xfffafbfc),
-        ),
-        title: 'Flutter Demo',
-        routeInformationProvider: _router.routeInformationProvider,
-        routeInformationParser: _router.routeInformationParser,
-        routerDelegate: _router.routerDelegate,
+      child: Builder(
+        builder: (context) {
+          return CupertinoApp.router(
+            theme: CupertinoThemeData(
+              brightness: brightness,
+              scaffoldBackgroundColor: AntTheme.of(context).colorBox,
+            ),
+            title: 'Flutter Demo',
+            routeInformationProvider: _router.routeInformationProvider,
+            routeInformationParser: _router.routeInformationParser,
+            routerDelegate: _router.routerDelegate,
+          );
+        },
       ),
     );
   }
