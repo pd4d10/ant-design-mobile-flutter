@@ -23,7 +23,9 @@ class AntCollapse extends StatelessWidget {
       children: [
         for (final panel in panels) ...[
           AntListItem(
-            child: panel.title,
+            arrow: Icon(activeKey.contains(panel.key)
+                ? AntIcons.upOutline
+                : AntIcons.downOutline), // TODO: rotate
             onClick: () {
               if (accordion) {
                 onChange([panel.key]);
@@ -35,6 +37,7 @@ class AntCollapse extends StatelessWidget {
                 }
               }
             },
+            child: panel.title,
           ),
           if (activeKey.contains(panel.key))
             Container(
