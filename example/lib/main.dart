@@ -8,6 +8,7 @@ import 'package:example/infinite_scroll.dart';
 import 'package:example/list.dart';
 import 'package:example/nav_bar.dart';
 import 'package:example/popup.dart';
+import 'package:example/swipe_action.dart';
 import 'package:example/tab_bar.dart';
 import 'package:example/tag.dart';
 import 'package:example/toast.dart';
@@ -64,6 +65,11 @@ final _routes = [
     name: 'Popup',
     path: '/popup',
     builder: (context, state) => const PopupExample(),
+  ),
+  GoRoute(
+    name: 'SwipeAction',
+    path: '/swipe-action',
+    builder: (context, state) => const SwipeActionExample(),
   ),
   GoRoute(
     name: 'TabBar',
