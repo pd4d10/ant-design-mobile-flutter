@@ -102,6 +102,7 @@ class AntTabBar extends StatelessWidget {
                             style: TextStyle(
                               fontSize: theme.fontSize2,
                               height: 1.5,
+                              leadingDistribution: TextLeadingDistribution.even,
                             ),
                           ),
                       ],

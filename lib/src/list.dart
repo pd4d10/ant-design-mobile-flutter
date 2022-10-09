@@ -51,21 +51,13 @@ class AntListItem extends StatelessWidget {
     this.disabled = false,
   });
 
-  //
   final Widget? prefix;
-
   final Widget child;
-
   final VoidCallback? onClick;
-
   final Widget? extra;
-
   final Widget? description;
-
   final Widget? title;
-
   final Widget? arrow;
-
   final bool disabled;
 
   @override
@@ -93,6 +85,7 @@ class AntListItem extends StatelessWidget {
           fontSize: theme.fontSize9,
           color: theme.colorText,
           height: 1.5,
+          leadingDistribution: TextLeadingDistribution.even,
         ),
         child: Container(
           padding: const EdgeInsets.all(12),

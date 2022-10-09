@@ -37,6 +37,7 @@ class AntTag extends StatelessWidget {
         style: TextStyle(
           fontSize: theme.fontSize3,
           height: 1,
+          leadingDistribution: TextLeadingDistribution.even,
           color: fill == AntTagFill.outline ? color : theme.colorWhite,
         ),
         child: child,
