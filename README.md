@@ -1,5 +1,7 @@
 # Ant Design Mobile for Flutter
 
+[![pub](https://img.shields.io/pub/v/antd_mobile.svg)](https://pub.dev/packages/antd_mobile)
+
 Flutter implementation of [Ant Design Mobile](https://mobile.ant.design/)
 
 ## Installation
