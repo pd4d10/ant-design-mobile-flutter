@@ -41,7 +41,7 @@ class AntTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = AntTheme.of(context);
     return Container(
-      color: theme.colorWhite,
+      color: theme.colorBackground,
       height: 49,
       child: Row(
         children: items.map((item) {
@@ -95,16 +95,13 @@ class AntTabBar extends StatelessWidget {
                                 ),
                             ],
                           ),
-                        if (item.title != null) const SizedBox(height: 2),
-                        if (item.title != null)
+                        if (item.title != null) ...[
+                          const SizedBox(height: 2),
                           Text(
                             item.title!,
-                            style: TextStyle(
-                              fontSize: theme.fontSize2,
-                              height: 1.5,
-                              leadingDistribution: TextLeadingDistribution.even,
-                            ),
+                            style: TextStyle(fontSize: theme.fontSize3),
                           ),
+                        ]
                       ],
                     ),
                   ),
