@@ -5,6 +5,7 @@ import 'package:example/check_list.dart';
 import 'package:example/collapse.dart';
 import 'package:example/icons.dart';
 import 'package:example/infinite_scroll.dart';
+import 'package:example/input.dart';
 import 'package:example/list.dart';
 import 'package:example/nav_bar.dart';
 import 'package:example/popup.dart';
@@ -50,6 +51,11 @@ final _routes = [
     name: 'InfiniteScroll',
     path: '/infinite-scroll',
     builder: (context, state) => const InfiniteScrollExample(),
+  ),
+  GoRoute(
+    name: 'Input',
+    path: '/input',
+    builder: (context, state) => const InputExample(),
   ),
   GoRoute(
     name: 'List',

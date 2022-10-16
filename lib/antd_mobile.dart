@@ -5,6 +5,7 @@ export 'package:antd_mobile/src/check_list.dart';
 export 'package:antd_mobile/src/collapse.dart';
 export 'package:antd_mobile/src/icons.dart';
 export 'package:antd_mobile/src/infinite_scroll.dart';
+export 'package:antd_mobile/src/input.dart';
 export 'package:antd_mobile/src/list.dart';
 export 'package:antd_mobile/src/nav_bar.dart';
 export 'package:antd_mobile/src/popup.dart';

@@ -29,7 +29,7 @@ class DemoBlock extends StatelessWidget {
           ),
         ),
         Container(
-          color: AntTheme.of(context).colorWeak,
+          color: AntTheme.of(context).colorBackground,
           padding: EdgeInsets.all(padding),
           alignment: Alignment.centerLeft,
           child: child,
