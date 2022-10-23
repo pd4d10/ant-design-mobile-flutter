@@ -28,7 +28,11 @@ class AntCollapse extends StatelessWidget {
                 : AntIcons.downOutline), // TODO: rotate
             onClick: () {
               if (accordion) {
-                onChange({panel.key});
+                if (activeKey.contains(panel.key)) {
+                  onChange({});
+                } else {
+                  onChange({panel.key});
+                }
               } else {
                 if (activeKey.contains(panel.key)) {
                   onChange(activeKey..remove(panel.key));
