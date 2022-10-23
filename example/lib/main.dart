@@ -169,9 +169,9 @@ class ToggleButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    return CupertinoButton(
+    return GestureDetector(
       child: const Icon(CupertinoIcons.brightness),
-      onPressed: () {
+      onTap: () {
         ref.read(themeProvider.notifier).update(
               (state) => state == Brightness.light
                   ? Brightness.dark
