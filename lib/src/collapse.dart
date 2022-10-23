@@ -11,8 +11,8 @@ class AntCollapse extends StatelessWidget {
   });
 
   final bool accordion;
-  final List<String> activeKey;
-  final void Function(List<String>) onChange;
+  final Set<String> activeKey;
+  final void Function(Set<String>) onChange;
   final List<AntCollapsePanel> panels;
 
   @override
@@ -28,7 +28,7 @@ class AntCollapse extends StatelessWidget {
                 : AntIcons.downOutline), // TODO: rotate
             onClick: () {
               if (accordion) {
-                onChange([panel.key]);
+                onChange({panel.key});
               } else {
                 if (activeKey.contains(panel.key)) {
                   onChange(activeKey..remove(panel.key));

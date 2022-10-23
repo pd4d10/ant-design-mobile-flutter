@@ -11,8 +11,8 @@ class CollapseExample extends StatefulWidget {
 }
 
 class _CollapseExampleState extends State<CollapseExample> {
-  var _activeKey = ['1'];
-  var _activeKey2 = ['1'];
+  var _activeKey = {'1'};
+  var _activeKey2 = <String>{};
 
   static final _lorem = lorem();
 
